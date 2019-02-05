@@ -27,6 +27,7 @@ class ObservingSite {
         
         let propProps = propsString.split(separator: "|")
         mName = String(propProps[2])
+        precondition(propProps[0] == keyProps[0], "Properties key and Keys key don't match")
         
     }
     init(key: String, region: String, name: String, latitude: Float?, longitude: Float?) {

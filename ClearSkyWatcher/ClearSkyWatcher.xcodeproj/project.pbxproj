@@ -10,12 +10,13 @@
 		F603F61E2039180D00129F25 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F603F61D2039180D00129F25 /* NetworkHandler.swift */; };
 		F6087A992031EFFF007426F5 /* ObservingSiteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6087A982031EFFF007426F5 /* ObservingSiteManager.swift */; };
 		F6087A9C2031F184007426F5 /* ObservingSite.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6087A9B2031F184007426F5 /* ObservingSite.swift */; };
+		F60EFEFE22093B8700A86806 /* SiteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60EFEFD22093B8700A86806 /* SiteTableViewController.swift */; };
 		F62A874D201BFF3B00260619 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62A874C201BFF3B00260619 /* AppDelegate.swift */; };
-		F62A874F201BFF3B00260619 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62A874E201BFF3B00260619 /* FirstViewController.swift */; };
 		F62A8751201BFF3C00260619 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62A8750201BFF3C00260619 /* SecondViewController.swift */; };
 		F62A8754201BFF3C00260619 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F62A8752201BFF3C00260619 /* Main.storyboard */; };
 		F62A8756201BFF3C00260619 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F62A8755201BFF3C00260619 /* Assets.xcassets */; };
 		F62A8759201BFF3C00260619 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F62A8757201BFF3C00260619 /* LaunchScreen.storyboard */; };
+		F642409320AFC8E500C52D65 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F642409220AFC8E500C52D65 /* ThemeManager.swift */; };
 		F6C99645203A6EBF006FE287 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C99644203A6EBF006FE287 /* Logger.swift */; };
 /* End PBXBuildFile section */
 
@@ -23,14 +24,15 @@
 		F603F61D2039180D00129F25 /* NetworkHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		F6087A982031EFFF007426F5 /* ObservingSiteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservingSiteManager.swift; sourceTree = "<group>"; };
 		F6087A9B2031F184007426F5 /* ObservingSite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservingSite.swift; sourceTree = "<group>"; };
+		F60EFEFD22093B8700A86806 /* SiteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteTableViewController.swift; sourceTree = "<group>"; };
 		F62A8749201BFF3B00260619 /* ClearSkyWatcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClearSkyWatcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F62A874C201BFF3B00260619 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F62A874E201BFF3B00260619 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		F62A8750201BFF3C00260619 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		F62A8753201BFF3C00260619 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F62A8755201BFF3C00260619 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F62A8758201BFF3C00260619 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F62A875A201BFF3C00260619 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F642409220AFC8E500C52D65 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		F6C99644203A6EBF006FE287 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Logger.swift; path = Util/Logger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -57,8 +59,17 @@
 			isa = PBXGroup;
 			children = (
 				F6087A9B2031F184007426F5 /* ObservingSite.swift */,
+				F6087A982031EFFF007426F5 /* ObservingSiteManager.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		F60EFEFC22093B7300A86806 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				F60EFEFD22093B8700A86806 /* SiteTableViewController.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		F62A8740201BFF3B00260619 = {
@@ -80,11 +91,11 @@
 		F62A874B201BFF3B00260619 /* ClearSkyWatcher */ = {
 			isa = PBXGroup;
 			children = (
+				F60EFEFC22093B7300A86806 /* UI */,
+				F642409120AFC8BE00C52D65 /* Utils */,
 				F603F61C203917E600129F25 /* Network */,
 				F6087A9F20325ADA007426F5 /* Model */,
-				F6087A982031EFFF007426F5 /* ObservingSiteManager.swift */,
 				F62A874C201BFF3B00260619 /* AppDelegate.swift */,
-				F62A874E201BFF3B00260619 /* FirstViewController.swift */,
 				F62A8750201BFF3C00260619 /* SecondViewController.swift */,
 				F62A8752201BFF3C00260619 /* Main.storyboard */,
 				F62A8755201BFF3C00260619 /* Assets.xcassets */,
@@ -93,6 +104,14 @@
 				F6C99644203A6EBF006FE287 /* Logger.swift */,
 			);
 			path = ClearSkyWatcher;
+			sourceTree = "<group>";
+		};
+		F642409120AFC8BE00C52D65 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F642409220AFC8E500C52D65 /* ThemeManager.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,7 +141,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = FoxNet;
 				TargetAttributes = {
 					F62A8748201BFF3B00260619 = {
@@ -170,10 +189,11 @@
 				F62A8751201BFF3C00260619 /* SecondViewController.swift in Sources */,
 				F6087A992031EFFF007426F5 /* ObservingSiteManager.swift in Sources */,
 				F62A874D201BFF3B00260619 /* AppDelegate.swift in Sources */,
-				F62A874F201BFF3B00260619 /* FirstViewController.swift in Sources */,
+				F642409320AFC8E500C52D65 /* ThemeManager.swift in Sources */,
 				F6C99645203A6EBF006FE287 /* Logger.swift in Sources */,
 				F6087A9C2031F184007426F5 /* ObservingSite.swift in Sources */,
 				F603F61E2039180D00129F25 /* NetworkHandler.swift in Sources */,
+				F60EFEFE22093B8700A86806 /* SiteTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,7 +336,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.foxnet.ClearSkyWatcher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -331,7 +351,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.foxnet.ClearSkyWatcher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

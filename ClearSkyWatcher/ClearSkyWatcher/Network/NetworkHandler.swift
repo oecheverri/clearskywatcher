@@ -22,11 +22,11 @@ class NetworkHandler {
     
     static var sharedInstance:NetworkHandler = NetworkHandler()
     
-    func doRequest(url: URL, callback: ((Result)-> Void)?) {
+    func doRequest(with url: URL, callback: ((Result)-> Void)?) {
         
         let dataTask = URLSession.shared.dataTask(with: url, completionHandler: {(data, response, error)->Void in
 
-            var result: Result = Result()
+            var result = Result()
             
             if let httpResponse = response as? HTTPURLResponse {
                 result.httpCode = httpResponse.statusCode
@@ -49,10 +49,9 @@ class NetworkHandler {
         dataTask.resume();
     }
 
-    private func getString(inData: Data?) -> String
-    {
-        if let stringData = inData {
-            let retString = String.init(data: stringData, encoding: String.Encoding.utf8)
+    private func getString(inData data: Data?) -> String {
+        if let stringData = data {
+            let retString = String.init(data: stringData, encoding: String.Encoding.isoLatin1)
             return retString ?? "";
         }
         return "";
