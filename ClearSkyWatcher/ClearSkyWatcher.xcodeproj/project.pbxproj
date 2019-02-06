@@ -9,8 +9,17 @@
 /* Begin PBXBuildFile section */
 		F603F61E2039180D00129F25 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F603F61D2039180D00129F25 /* NetworkHandler.swift */; };
 		F6087A992031EFFF007426F5 /* ObservingSiteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6087A982031EFFF007426F5 /* ObservingSiteManager.swift */; };
-		F6087A9C2031F184007426F5 /* ObservingSite.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6087A9B2031F184007426F5 /* ObservingSite.swift */; };
+		F60BC367220954BB0071674F /* InitializerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60BC366220954BB0071674F /* InitializerViewController.swift */; };
+		F60BC36B2209BD600071674F /* ClearSkyWatcher.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F60BC3692209BD600071674F /* ClearSkyWatcher.xcdatamodeld */; };
+		F60BC37A220A7BF90071674F /* Forecast+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60BC376220A7BF90071674F /* Forecast+CoreDataClass.swift */; };
+		F60BC37B220A7BF90071674F /* Forecast+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60BC377220A7BF90071674F /* Forecast+CoreDataProperties.swift */; };
+		F60BC37C220A7BF90071674F /* ObservingSite+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60BC378220A7BF90071674F /* ObservingSite+CoreDataClass.swift */; };
+		F60BC37D220A7BF90071674F /* ObservingSite+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60BC379220A7BF90071674F /* ObservingSite+CoreDataProperties.swift */; };
+		F60BC37F220A7C3B0071674F /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60BC37E220A7C3B0071674F /* PersistenceManager.swift */; };
+		F60BC382220A804E0071674F /* Region+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60BC380220A804E0071674F /* Region+CoreDataClass.swift */; };
+		F60BC383220A804E0071674F /* Region+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60BC381220A804E0071674F /* Region+CoreDataProperties.swift */; };
 		F60EFEFE22093B8700A86806 /* SiteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60EFEFD22093B8700A86806 /* SiteTableViewController.swift */; };
+		F60EFF0022093E5900A86806 /* ClearSkyWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60EFEFF22093E5900A86806 /* ClearSkyWatcher.swift */; };
 		F62A874D201BFF3B00260619 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62A874C201BFF3B00260619 /* AppDelegate.swift */; };
 		F62A8751201BFF3C00260619 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62A8750201BFF3C00260619 /* SecondViewController.swift */; };
 		F62A8754201BFF3C00260619 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F62A8752201BFF3C00260619 /* Main.storyboard */; };
@@ -23,8 +32,17 @@
 /* Begin PBXFileReference section */
 		F603F61D2039180D00129F25 /* NetworkHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		F6087A982031EFFF007426F5 /* ObservingSiteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservingSiteManager.swift; sourceTree = "<group>"; };
-		F6087A9B2031F184007426F5 /* ObservingSite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservingSite.swift; sourceTree = "<group>"; };
+		F60BC366220954BB0071674F /* InitializerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitializerViewController.swift; sourceTree = "<group>"; };
+		F60BC36A2209BD600071674F /* ObservingSiteProperties.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ObservingSiteProperties.xcdatamodel; sourceTree = "<group>"; };
+		F60BC376220A7BF90071674F /* Forecast+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Forecast+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F60BC377220A7BF90071674F /* Forecast+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Forecast+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F60BC378220A7BF90071674F /* ObservingSite+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservingSite+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F60BC379220A7BF90071674F /* ObservingSite+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservingSite+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F60BC37E220A7C3B0071674F /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
+		F60BC380220A804E0071674F /* Region+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Region+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F60BC381220A804E0071674F /* Region+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Region+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F60EFEFD22093B8700A86806 /* SiteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteTableViewController.swift; sourceTree = "<group>"; };
+		F60EFEFF22093E5900A86806 /* ClearSkyWatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearSkyWatcher.swift; sourceTree = "<group>"; };
 		F62A8749201BFF3B00260619 /* ClearSkyWatcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClearSkyWatcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F62A874C201BFF3B00260619 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F62A8750201BFF3C00260619 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -58,16 +76,51 @@
 		F6087A9F20325ADA007426F5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F6087A9B2031F184007426F5 /* ObservingSite.swift */,
 				F6087A982031EFFF007426F5 /* ObservingSiteManager.swift */,
+				F60EFEFF22093E5900A86806 /* ClearSkyWatcher.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		F60BC3682209BD3B0071674F /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				F60BC380220A804E0071674F /* Region+CoreDataClass.swift */,
+				F60BC381220A804E0071674F /* Region+CoreDataProperties.swift */,
+				F60BC376220A7BF90071674F /* Forecast+CoreDataClass.swift */,
+				F60BC377220A7BF90071674F /* Forecast+CoreDataProperties.swift */,
+				F60BC378220A7BF90071674F /* ObservingSite+CoreDataClass.swift */,
+				F60BC379220A7BF90071674F /* ObservingSite+CoreDataProperties.swift */,
+				F60BC3692209BD600071674F /* ClearSkyWatcher.xcdatamodeld */,
+				F60BC37E220A7C3B0071674F /* PersistenceManager.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		F60BC36C2209CA280071674F /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				F62A8752201BFF3C00260619 /* Main.storyboard */,
+				F62A8757201BFF3C00260619 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		F60BC36D2209CA450071674F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F62A875A201BFF3C00260619 /* Info.plist */,
+				F62A8755201BFF3C00260619 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		F60EFEFC22093B7300A86806 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				F62A8750201BFF3C00260619 /* SecondViewController.swift */,
 				F60EFEFD22093B8700A86806 /* SiteTableViewController.swift */,
+				F60BC366220954BB0071674F /* InitializerViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -91,16 +144,14 @@
 		F62A874B201BFF3B00260619 /* ClearSkyWatcher */ = {
 			isa = PBXGroup;
 			children = (
+				F60BC36D2209CA450071674F /* Resources */,
+				F60BC36C2209CA280071674F /* Storyboards */,
+				F60BC3682209BD3B0071674F /* Data */,
 				F60EFEFC22093B7300A86806 /* UI */,
 				F642409120AFC8BE00C52D65 /* Utils */,
 				F603F61C203917E600129F25 /* Network */,
 				F6087A9F20325ADA007426F5 /* Model */,
 				F62A874C201BFF3B00260619 /* AppDelegate.swift */,
-				F62A8750201BFF3C00260619 /* SecondViewController.swift */,
-				F62A8752201BFF3C00260619 /* Main.storyboard */,
-				F62A8755201BFF3C00260619 /* Assets.xcassets */,
-				F62A8757201BFF3C00260619 /* LaunchScreen.storyboard */,
-				F62A875A201BFF3C00260619 /* Info.plist */,
 				F6C99644203A6EBF006FE287 /* Logger.swift */,
 			);
 			path = ClearSkyWatcher;
@@ -141,7 +192,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = FoxNet;
 				TargetAttributes = {
 					F62A8748201BFF3B00260619 = {
@@ -187,13 +238,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				F62A8751201BFF3C00260619 /* SecondViewController.swift in Sources */,
+				F60BC382220A804E0071674F /* Region+CoreDataClass.swift in Sources */,
 				F6087A992031EFFF007426F5 /* ObservingSiteManager.swift in Sources */,
+				F60BC383220A804E0071674F /* Region+CoreDataProperties.swift in Sources */,
+				F60BC37A220A7BF90071674F /* Forecast+CoreDataClass.swift in Sources */,
+				F60BC37F220A7C3B0071674F /* PersistenceManager.swift in Sources */,
 				F62A874D201BFF3B00260619 /* AppDelegate.swift in Sources */,
 				F642409320AFC8E500C52D65 /* ThemeManager.swift in Sources */,
+				F60BC367220954BB0071674F /* InitializerViewController.swift in Sources */,
+				F60BC37D220A7BF90071674F /* ObservingSite+CoreDataProperties.swift in Sources */,
+				F60BC37C220A7BF90071674F /* ObservingSite+CoreDataClass.swift in Sources */,
 				F6C99645203A6EBF006FE287 /* Logger.swift in Sources */,
-				F6087A9C2031F184007426F5 /* ObservingSite.swift in Sources */,
+				F60EFF0022093E5900A86806 /* ClearSkyWatcher.swift in Sources */,
+				F60BC37B220A7BF90071674F /* Forecast+CoreDataProperties.swift in Sources */,
 				F603F61E2039180D00129F25 /* NetworkHandler.swift in Sources */,
 				F60EFEFE22093B8700A86806 /* SiteTableViewController.swift in Sources */,
+				F60BC36B2209BD600071674F /* ClearSkyWatcher.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +293,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -240,6 +301,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -267,6 +329,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				"INFOPLIST_FILE[sdk=*]" = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -290,6 +353,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -297,6 +361,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -332,7 +397,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9PSYN3N9X6;
-				INFOPLIST_FILE = ClearSkyWatcher/Info.plist;
+				INFOPLIST_FILE = ClearSkyWatcher/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.foxnet.ClearSkyWatcher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -347,7 +412,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9PSYN3N9X6;
-				INFOPLIST_FILE = ClearSkyWatcher/Info.plist;
+				INFOPLIST_FILE = ClearSkyWatcher/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.foxnet.ClearSkyWatcher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -378,6 +443,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F60BC3692209BD600071674F /* ClearSkyWatcher.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F60BC36A2209BD600071674F /* ObservingSiteProperties.xcdatamodel */,
+			);
+			currentVersion = F60BC36A2209BD600071674F /* ObservingSiteProperties.xcdatamodel */;
+			path = ClearSkyWatcher.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F62A8741201BFF3B00260619 /* Project object */;
 }

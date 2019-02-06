@@ -52,8 +52,8 @@ class NetworkHandler {
     private func getString(inData data: Data?) -> String {
         if let stringData = data {
             let retString = String.init(data: stringData, encoding: String.Encoding.isoLatin1)
-            return retString ?? "";
+            return retString ?? ""
         }
-        return "";
+        return ""
     }
 }
