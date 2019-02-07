@@ -19,7 +19,7 @@ class PersistenceManager {
         let container = NSPersistentContainer(name: "ClearSkyWatcher")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
-                print("Unresolved error \(error), \(error.userInfo)")
+                logE("Unresolved error \(error), \(error.userInfo)")
             }
         })
         return container
@@ -33,10 +33,10 @@ class PersistenceManager {
         if context.hasChanges {
             do {
                 try context.save()
-                print("Saved successfully!")
+                logD("Saved successfully!")
             } catch {
                 let nserror = error as NSError
-                print("Unresolved error \(nserror), \(nserror.userInfo)")
+                logE("Unresolved error \(nserror), \(nserror.userInfo)")
                 context.reset()
             }
         }

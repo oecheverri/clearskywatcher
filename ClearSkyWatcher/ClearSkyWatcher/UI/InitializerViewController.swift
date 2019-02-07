@@ -15,6 +15,7 @@ class InitializerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        logD("Starting ClearSkyWatcher")
         ClearSkyWatcher.instance.start(callingWhenReady: clearSkyWatcherStarted)
     }
     
@@ -38,13 +39,13 @@ class InitializerViewController: UIViewController {
             
             let regionCount = try persistenceManager.context.count(for: regionRequest)
             
-            print("ObservingSites: \(observingSiteCount)")
-            print("Regions: \(regionCount)")
+            logD("ObservingSites: \(observingSiteCount)")
+            logD("Regions: \(regionCount)")
             
             
             
         } catch {
-            print(error)
+            logE("Unresolved error \(error)")
         }
     }
     

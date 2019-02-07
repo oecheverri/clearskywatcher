@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA8944FD220C77DD00059837 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8944FC220C77DD00059837 /* SettingsManager.swift */; };
+		DA8944FF220C9A1200059837 /* ForecastParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8944FE220C9A1200059837 /* ForecastParser.swift */; };
 		F603F61E2039180D00129F25 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F603F61D2039180D00129F25 /* NetworkHandler.swift */; };
 		F6087A992031EFFF007426F5 /* ObservingSiteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6087A982031EFFF007426F5 /* ObservingSiteManager.swift */; };
 		F60BC367220954BB0071674F /* InitializerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60BC366220954BB0071674F /* InitializerViewController.swift */; };
@@ -30,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA8944FC220C77DD00059837 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
+		DA8944FE220C9A1200059837 /* ForecastParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastParser.swift; sourceTree = "<group>"; };
 		F603F61D2039180D00129F25 /* NetworkHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		F6087A982031EFFF007426F5 /* ObservingSiteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservingSiteManager.swift; sourceTree = "<group>"; };
 		F60BC366220954BB0071674F /* InitializerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitializerViewController.swift; sourceTree = "<group>"; };
@@ -51,7 +55,7 @@
 		F62A8758201BFF3C00260619 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F62A875A201BFF3C00260619 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F642409220AFC8E500C52D65 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
-		F6C99644203A6EBF006FE287 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Logger.swift; path = Util/Logger.swift; sourceTree = "<group>"; };
+		F6C99644203A6EBF006FE287 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,7 +156,6 @@
 				F603F61C203917E600129F25 /* Network */,
 				F6087A9F20325ADA007426F5 /* Model */,
 				F62A874C201BFF3B00260619 /* AppDelegate.swift */,
-				F6C99644203A6EBF006FE287 /* Logger.swift */,
 			);
 			path = ClearSkyWatcher;
 			sourceTree = "<group>";
@@ -161,6 +164,9 @@
 			isa = PBXGroup;
 			children = (
 				F642409220AFC8E500C52D65 /* ThemeManager.swift */,
+				DA8944FC220C77DD00059837 /* SettingsManager.swift */,
+				DA8944FE220C9A1200059837 /* ForecastParser.swift */,
+				F6C99644203A6EBF006FE287 /* Logger.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -245,6 +251,7 @@
 				F60BC37F220A7C3B0071674F /* PersistenceManager.swift in Sources */,
 				F62A874D201BFF3B00260619 /* AppDelegate.swift in Sources */,
 				F642409320AFC8E500C52D65 /* ThemeManager.swift in Sources */,
+				DA8944FD220C77DD00059837 /* SettingsManager.swift in Sources */,
 				F60BC367220954BB0071674F /* InitializerViewController.swift in Sources */,
 				F60BC37D220A7BF90071674F /* ObservingSite+CoreDataProperties.swift in Sources */,
 				F60BC37C220A7BF90071674F /* ObservingSite+CoreDataClass.swift in Sources */,
@@ -253,6 +260,7 @@
 				F60BC37B220A7BF90071674F /* Forecast+CoreDataProperties.swift in Sources */,
 				F603F61E2039180D00129F25 /* NetworkHandler.swift in Sources */,
 				F60EFEFE22093B8700A86806 /* SiteTableViewController.swift in Sources */,
+				DA8944FF220C9A1200059837 /* ForecastParser.swift in Sources */,
 				F60BC36B2209BD600071674F /* ClearSkyWatcher.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -36,22 +36,20 @@ class ObservingSiteManager {
                         self.persistenceManager.save()
                         callback(true)
                     } else {
-                        logE(message: "Failed to get observing site properties: HTTP:\(result.httpCode) : \(result.responseData)" )
+                        logE("Failed to get observing site properties: HTTP:\(result.httpCode) : \(result.responseData)" )
                         callback(false)
                     }
                 }
             } else {
-                logE(message: "Failed to get observing site keys: HTTP:\(result.httpCode) : \(result.responseData)" )
+                logE("Failed to get observing site keys: HTTP:\(result.httpCode) : \(result.responseData)" )
                 callback(false)
             }
         }
     }
     
     private func processResponse(rawData:String) -> [String] {
-        
         let retValues = rawData.components(separatedBy: "\n")
-        let sortedRetValues = retValues.sorted()
-        return sortedRetValues
+        return retValues.sorted()
     }
 }
 

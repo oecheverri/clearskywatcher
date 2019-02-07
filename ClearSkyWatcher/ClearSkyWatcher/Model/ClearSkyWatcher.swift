@@ -10,20 +10,29 @@ import Foundation
 
 class ClearSkyWatcher {
     
-    static var instance: ClearSkyWatcher = ClearSkyWatcher()
+    static let instance: ClearSkyWatcher = ClearSkyWatcher()
+    static let OneDayAsSeconds: Double = 60 * 60 * 24
+    static let TwelveHoursAsSeconds: Double = 60 * 60 * 12
     
-    private var observingSiteManager = ObservingSiteManager()
+    private let observingSiteManager = ObservingSiteManager()
+    
+    
+    private var shouldUpdateDatabase: Bool {
+        return Date().timeIntervalSince(SettingsManager.shared.databaseLastUpdate) > ClearSkyWatcher.OneDayAsSeconds
+    }
     
     private init() {}
     
     func start(callingWhenReady notifyReady: @escaping ((Bool)->Void)) {
-//        observingSiteManager.populateObservingSites() {
-//            precondition($0, "Failed to initialize ObservingSiteManager")
-//            notifyReady($0)
-//        }
-        
-        notifyReady(true)
+        if shouldUpdateDatabase {
+            observingSiteManager.populateObservingSites() {
+                precondition($0, "Failed to initialize ObservingSiteManager")
+                SettingsManager.shared.databaseUpdated()
+                notifyReady($0)
+            }
+        } else {
+            notifyReady(true)
+        }
     }
-    
     
 }

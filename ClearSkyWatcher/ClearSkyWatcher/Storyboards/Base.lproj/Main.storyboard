@@ -55,13 +55,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="5Of-MD-Mb2">
-                                <rect key="frame" x="169" y="388" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="5Of-MD-Mb2">
+                                <rect key="frame" x="169" y="392.66666666666669" width="37" height="37"/>
                                 <color key="color" name="systemRedColor" catalog="System" colorSpace="catalog"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5Of-MD-Mb2" firstAttribute="centerY" secondItem="67P-ps-AJC" secondAttribute="centerY" id="6a2-sk-vTU"/>
+                            <constraint firstItem="5Of-MD-Mb2" firstAttribute="centerX" secondItem="67P-ps-AJC" secondAttribute="centerX" id="bts-tI-fub"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="67P-ps-AJC"/>
                     </view>
                     <connections>
