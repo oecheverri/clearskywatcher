@@ -15,7 +15,14 @@ class ClearSkyWatcher {
     static let TwelveHoursAsSeconds: Double = 60 * 60 * 12
     
     private let observingSiteManager = ObservingSiteManager()
+    private let persistenceManager = PersistenceManager.shared
     
+    private var isStarted = false
+    
+    
+    private var shouldSeedRegions: Bool {
+        return !SettingsManager.shared.haveRegionsBeenSeeded
+    }
     
     private var shouldUpdateDatabase: Bool {
         return Date().timeIntervalSince(SettingsManager.shared.databaseLastUpdate) > ClearSkyWatcher.OneDayAsSeconds
@@ -24,15 +31,25 @@ class ClearSkyWatcher {
     private init() {}
     
     func start(callingWhenReady notifyReady: @escaping ((Bool)->Void)) {
+//        if shouldSeedRegions {
+//            observingSiteManager.seedRegions()
+//            SettingsManager.shared.regionsHaveBeenSeeded()
+//        }
+        
         if shouldUpdateDatabase {
-            observingSiteManager.populateObservingSites() {
+            observingSiteManager.populateObservingSites {
                 precondition($0, "Failed to initialize ObservingSiteManager")
                 SettingsManager.shared.databaseUpdated()
+                self.isStarted = $0
                 notifyReady($0)
             }
         } else {
             notifyReady(true)
         }
+    }
+    
+    func getRegions() -> [Region] {
+        return persistenceManager.getAllRegions()
     }
     
 }

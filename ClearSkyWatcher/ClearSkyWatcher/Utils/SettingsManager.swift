@@ -26,6 +26,14 @@ class SettingsManager {
         defaults.set(Date(), forKey: "dbLastUpdated")
     }
     
+    var haveRegionsBeenSeeded: Bool {
+        return defaults.bool(forKey: "regionsSeeded")
+    }
+    
+    func regionsHaveBeenSeeded() {
+        defaults.set(true, forKey: "regionsSeeded")
+    }
+
     private init() {
     }
 }

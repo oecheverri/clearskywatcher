@@ -132,10 +132,14 @@ struct ForecastParser {
 
 extension String {
     func between(firstIndexOf start: Character, lastIndexOf end: Character) -> String {
-        let startIndex = self.index(after: self.firstIndex(of: start)!)
-        let endIndex = self.lastIndex(of: end)!
+        assert(self.contains(start))
         
-        return String(self[startIndex..<endIndex])
+        let startIndex = self.index(after: self.firstIndex(of: start)!)
+        let endIndex = self.lastIndex(of: end)
+        
+        assert(endIndex != nil && startIndex <= endIndex!)
+        
+        return String(self[startIndex..<endIndex!])
     }
 }
 

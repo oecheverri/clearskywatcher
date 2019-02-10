@@ -15,8 +15,7 @@ class InitializerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        logD("Starting ClearSkyWatcher")
-        ClearSkyWatcher.instance.start(callingWhenReady: clearSkyWatcherStarted)
+        startModel()
     }
     
     override func didReceiveMemoryWarning() {
@@ -24,29 +23,26 @@ class InitializerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func clearSkyWatcherStarted(successfully: Bool) -> Void {
-        precondition(successfully)
+    func clearSkyWatcherStarted(successfully success: Bool) -> Void {
         
-//        DispatchQueue.main.async(execute: {
-//            self.performSegue(withIdentifier: "Launch", sender: nil)
-//        })
-
-        do {
-            let observingSiteRequest: ObservingSite.FetchRequest = ObservingSite.fetchRequest()
-            let regionRequest: Region.FetchRequest = Region.fetchRequest()
+        if success {
+            DispatchQueue.main.async(execute: {
+                self.performSegue(withIdentifier: "Launch", sender: nil)
+            })
+        } else {
+            logE("Failed to start model")
+            let alert = UIAlertController(title: "Error", message: "There was an error populating the database, check your internet connection", preferredStyle: .alert)
             
-            let observingSiteCount = try persistenceManager.context.count(for: observingSiteRequest)
+            alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: {[unowned self](UIAlertAction) in
+                self.startModel()
+            } ))
             
-            let regionCount = try persistenceManager.context.count(for: regionRequest)
-            
-            logD("ObservingSites: \(observingSiteCount)")
-            logD("Regions: \(regionCount)")
-            
-            
-            
-        } catch {
-            logE("Unresolved error \(error)")
         }
+    }
+    
+    func startModel() -> Void {
+        logD("Starting ClearSkyWatcher")
+        ClearSkyWatcher.instance.start(callingWhenReady: clearSkyWatcherStarted)
     }
     
 

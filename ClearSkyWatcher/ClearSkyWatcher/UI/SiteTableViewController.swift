@@ -12,10 +12,17 @@ class SiteTableViewController: UITableViewController {
 
 //    @IBOutlet var tableView: UITableView!
     
-    var observingSites: [ObservingSite]? = nil
+    var regions = ClearSkyWatcher.instance.getRegions().sorted{$0.name < $1.name}
+    
+    lazy var regionIndeces = { () -> [String] in
+        var indeces = Set<String>()
+        regions.forEach{indeces.insert(String($0.name.first!))}
+        return indeces.sorted()
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -28,23 +35,44 @@ class SiteTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return regions.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return regions[section].observingSites.count
+
     }
     
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SiteCell", for: indexPath)
 
-        // Configure the cell...
+        let observingSite = regions[indexPath.section].observingSites.allObjects[indexPath.row] as? ObservingSite
+        
+        cell.textLabel?.text = observingSite?.name
 
         return cell
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return regions[section].name
+    }
+    
+    override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+        for startIndex in 0..<regions.count {
+            if regions[startIndex].name.starts(with: title) {
+                return startIndex
+            }
+        }
+        return 0
+    }
+    
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return regionIndeces
+    }
+    
+    
 
     /*
     // Override to support conditional editing of the table view.

@@ -2,7 +2,7 @@
 //  Forecast+CoreDataProperties.swift
 //  ClearSkyWatcher
 //
-//  Created by Oscar Echeverri on 2019-02-06.
+//  Created by Oscar Echeverri on 2019-02-08.
 //  Copyright © 2019 FoxNet. All rights reserved.
 //
 //

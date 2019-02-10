@@ -19,28 +19,30 @@ public class ObservingSite: NSManagedObject {
     
     var regionName: String {
         if let region = containingRegion {
-            return region.name!
+            return region.name
         } else {
             return ""
         }
     }
     
-    class func updateOrCreate(withKeyString keyString: String, withPropertyString propertyString: String, inContext context: NSManagedObjectContext) -> ObservingSite {
+    class func updateOrCreate(withKeyString keyString: String, withPropertyString propertyString: String, callbackOnComplete callback: ((Bool) -> Void)?) {
         
-        let observingSiteData = parse(keyString: keyString, propString: propertyString)
-        let existingSite = PersistenceManager.shared.getObservingSite(withKey: observingSiteData.key)
+        PersistenceManager.shared.doAsync(block: { context in
+            
+            let observingSiteData = parse(keyString: keyString, propString: propertyString)
+            let existingSite = PersistenceManager.shared.getObservingSite(withKey: observingSiteData.key)
+            
+            let site = existingSite ?? ObservingSite(context: context)
+            
+            site.key = observingSiteData.key
+            site.name = observingSiteData.name
+            site.latitude = observingSiteData.latitude ?? Float.infinity
+            site.longitude = observingSiteData.longitude ?? Float.infinity
+            
+            let containingRegion = Region.findOrCreate(withName: observingSiteData.regionName)
+            site.containingRegion = containingRegion
+        }, callbackWhenComplete: callback)
         
-        let returnSite = existingSite ?? ObservingSite(context: context)
-        
-        returnSite.key = observingSiteData.key
-        returnSite.name = observingSiteData.name
-        returnSite.latitude = observingSiteData.latitude ?? Float.infinity
-        returnSite.longitude = observingSiteData.longitude ?? Float.infinity
-        
-        let containingRegion = Region.findOrCreate(withName: observingSiteData.regionName, inContext: context)
-        returnSite.containingRegion = containingRegion
-
-        return returnSite
         
     }
     

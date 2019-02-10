@@ -31,10 +31,8 @@ class ObservingSiteManager {
                             if currentKeyString.isEmpty || currentPropString.isEmpty {
                                 continue
                             }
-                            let _ = ObservingSite.updateOrCreate(withKeyString: observingSiteData.sortedKeys[index], withPropertyString: observingSiteData.sortedProps[index], inContext: self.persistenceManager.context)
+                            ObservingSite.updateOrCreate(withKeyString: observingSiteData.sortedKeys[index], withPropertyString: observingSiteData.sortedProps[index], callbackOnComplete: index==(observingSiteData.sortedKeys.count-1) ? callback : nil)
                         }
-                        self.persistenceManager.save()
-                        callback(true)
                     } else {
                         logE("Failed to get observing site properties: HTTP:\(result.httpCode) : \(result.responseData)" )
                         callback(false)
@@ -51,5 +49,10 @@ class ObservingSiteManager {
         let retValues = rawData.components(separatedBy: "\n")
         return retValues.sorted()
     }
+    
+    
+//    func seedRegions() {
+//        Region.generateRegions()
+//    }
 }
 

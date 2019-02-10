@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18D42" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18D109" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Forecast" representedClassName=".Forecast" syncable="YES">
         <attribute name="cloud" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="darkness" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -29,7 +29,7 @@
     <entity name="Region" representedClassName=".Region" syncable="YES">
         <attribute name="country" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
-        <relationship name="observingSites" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ObservingSite" inverseName="containingRegion" inverseEntity="ObservingSite" syncable="YES"/>
+        <relationship name="observingSites" toMany="YES" deletionRule="Nullify" destinationEntity="ObservingSite" inverseName="containingRegion" inverseEntity="ObservingSite" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="name"/>

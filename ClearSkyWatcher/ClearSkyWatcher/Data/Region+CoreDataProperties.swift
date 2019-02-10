@@ -2,7 +2,7 @@
 //  Region+CoreDataProperties.swift
 //  ClearSkyWatcher
 //
-//  Created by Oscar Echeverri on 2019-02-06.
+//  Created by Oscar Echeverri on 2019-02-08.
 //  Copyright © 2019 FoxNet. All rights reserved.
 //
 //
@@ -17,9 +17,9 @@ extension Region {
         return NSFetchRequest<Region>(entityName: "Region")
     }
 
-    @NSManaged public var country: String?
-    @NSManaged public var name: String?
-    @NSManaged public var observingSites: NSSet?
+    @NSManaged public var country: String
+    @NSManaged public var name: String
+    @NSManaged public var observingSites: NSSet
 
 }
 

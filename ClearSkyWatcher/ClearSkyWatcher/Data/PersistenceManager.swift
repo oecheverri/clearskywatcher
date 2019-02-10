@@ -14,7 +14,6 @@ class PersistenceManager {
     
     private init() {}
     
-    
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "ClearSkyWatcher")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
@@ -25,25 +24,36 @@ class PersistenceManager {
         return container
     }()
     
-    lazy var context = {
+    
+    lazy var uiContext = {
         return persistentContainer.viewContext
     }()
     
-    func save() {        
-        if context.hasChanges {
-            do {
-                try context.save()
-                logD("Saved successfully!")
-            } catch {
-                let nserror = error as NSError
-                logE("Unresolved error \(nserror), \(nserror.userInfo)")
-                context.reset()
-            }
-        }
-    }
+    lazy var context: NSManagedObjectContext = {
+        let context = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+        context.parent = uiContext
+        
+        return context
+    }()
+    
+    
+//    func save() {
+//        if context.hasChanges {
+//            do {
+//                try context.save()
+//                logD("Saved successfully!")
+//            } catch {
+//                let nserror = error as NSError
+//                logE("Unresolved error \(nserror), \(nserror.userInfo)")
+//                context.reset()
+//            }
+//        }
+//    }
     
     func getObservingSites(inRegion region: Region) -> [ObservingSite] {
         let observingSiteFetchRequest: NSFetchRequest<ObservingSite> = ObservingSite.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        observingSiteFetchRequest.sortDescriptors = [sortDescriptor]
         observingSiteFetchRequest.predicate = NSPredicate(format: "containingReguin == %@", region)
         
         return doFetch(fetchRequest: observingSiteFetchRequest)
@@ -62,8 +72,10 @@ class PersistenceManager {
     
     func getObservingSites() -> [ObservingSite] {
         let observingSiteFetchRequest: ObservingSite.FetchRequest = ObservingSite.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        observingSiteFetchRequest.sortDescriptors = [sortDescriptor]
         let results = doFetch(fetchRequest: observingSiteFetchRequest)
-        
+
         return results
     }
     
@@ -78,13 +90,71 @@ class PersistenceManager {
         return nil
     }
     
+    func getAllRegions() -> [Region] {
+        let regionFetchRequest: Region.FetchRequest = Region.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        regionFetchRequest.sortDescriptors = [sortDescriptor]
+        let results = doFetch(fetchRequest: regionFetchRequest)
+        return results
+    }
+    
     private func doFetch<T: NSManagedObject>(fetchRequest: NSFetchRequest<T>) -> [T] {
         do {
+            let context = Thread.isMainThread ? self.uiContext : self.context
             let result = try context.fetch(fetchRequest)
             return result
         } catch {
             print(error)
             return [T]()
         }
+    }
+    
+    func doAsync(block: @escaping (NSManagedObjectContext) -> Void, callbackWhenComplete complete: ((Bool) -> Void)? ) {
+        context.perform {
+            block(self.context)
+            do {
+                try self.context.save()
+                self.uiContext.performAndWait {
+                    do {
+                        try self.uiContext.save()
+                        if complete != nil {
+                            complete!(true)
+                        }
+                    } catch {
+                        logE("Error occured saving parebt context: \(error.localizedDescription)")
+                        if complete != nil {
+                            complete!(false)
+                        }
+                    }
+                }
+            } catch {
+                logE("Error occured saving private context: \(error.localizedDescription)")
+                if complete != nil {
+                    complete!(false)
+                }
+            }
+            
+        }
+    }
+    
+    func createManagedObjects<T>(usingBlock creationBlock:(NSManagedObjectContext) -> T?) -> T? {
+        var object: T?
+        context.performAndWait {
+            object = creationBlock(context)
+            do {
+                try context.save()
+                uiContext.performAndWait {
+                    do {
+                        try uiContext.save()
+                    } catch {
+                        logE("Error occured saving parebt context: \(error.localizedDescription)")
+                    }
+                }
+            } catch {
+                logE("Error occured saving private context: \(error.localizedDescription)")
+            }
+            
+        }
+        return object
     }
 }
