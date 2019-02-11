@@ -17,10 +17,10 @@ extension ObservingSite {
         return NSFetchRequest<ObservingSite>(entityName: "ObservingSite")
     }
 
-    @NSManaged public var key: String?
+    @NSManaged public var key: String
     @NSManaged public var latitude: Float
     @NSManaged public var longitude: Float
-    @NSManaged public var name: String?
+    @NSManaged public var name: String
     @NSManaged public var containingRegion: Region?
     @NSManaged public var forecasts: NSSet?
 

@@ -14,6 +14,7 @@
         <relationship name="belongsTo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ObservingSite" inverseName="forecasts" inverseEntity="ObservingSite" syncable="YES"/>
     </entity>
     <entity name="ObservingSite" representedClassName=".ObservingSite" syncable="YES">
+        <attribute name="isFavourite" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="key" attributeType="String" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -36,11 +37,9 @@
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
-    <fetchRequest name="GetAllObservingSites" entity="Region"/>
-    <fetchRequest name="GetAllRegions" entity="ObservingSite"/>
     <elements>
         <element name="Forecast" positionX="200.515625" positionY="-234.4375" width="128" height="208"/>
-        <element name="ObservingSite" positionX="-9.76171875" positionY="-129.3359375" width="128" height="135"/>
+        <element name="ObservingSite" positionX="-9.76171875" positionY="-129.3359375" width="128" height="150"/>
         <element name="Region" positionX="-299.625" positionY="-241.8046875" width="128" height="90"/>
     </elements>
 </model>

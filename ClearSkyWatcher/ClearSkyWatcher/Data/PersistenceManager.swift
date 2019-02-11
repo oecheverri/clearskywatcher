@@ -36,20 +36,6 @@ class PersistenceManager {
         return context
     }()
     
-    
-//    func save() {
-//        if context.hasChanges {
-//            do {
-//                try context.save()
-//                logD("Saved successfully!")
-//            } catch {
-//                let nserror = error as NSError
-//                logE("Unresolved error \(nserror), \(nserror.userInfo)")
-//                context.reset()
-//            }
-//        }
-//    }
-    
     func getObservingSites(inRegion region: Region) -> [ObservingSite] {
         let observingSiteFetchRequest: NSFetchRequest<ObservingSite> = ObservingSite.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
@@ -157,4 +143,38 @@ class PersistenceManager {
         }
         return object
     }
+    
+    func getFavouriteObservingSites() -> [ObservingSite]{
+        
+        let fetchRequest: ObservingSite.FetchRequest = ObservingSite.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "isFavourite=%@", true)
+        
+        return doFetch(fetchRequest: fetchRequest)
+        
+        
+    }
+    
+    func getCountries() -> [String] {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Region")
+        
+        fetchRequest.propertiesToFetch = ["country"]
+        fetchRequest.propertiesToGroupBy = ["country"]
+        fetchRequest.resultType = .dictionaryResultType
+        
+        do {
+            let context = Thread.isMainThread ? self.uiContext : self.context
+            let result: [NSDictionary] = try context.fetch(fetchRequest) as! [NSDictionary]
+            
+            var countries = [String]()
+            
+            for dictionary in result {
+                countries.append(dictionary.allValues[0] as! String)
+            }
+            return countries
+        } catch {
+            print(error)
+        }
+        return [String]()
+    }
+
 }

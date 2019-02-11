@@ -14,7 +14,7 @@ public class ObservingSite: NSManagedObject {
     typealias FetchRequest = NSFetchRequest<ObservingSite>
     
     var url: URL? {
-        return URL(string: "https://www.cleardarksky.com/txtc/\(key!)csp.txt")
+        return URL(string: "https://www.cleardarksky.com/txtc/\(key)csp.txt")
     }
     
     var regionName: String {
