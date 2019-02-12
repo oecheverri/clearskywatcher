@@ -56,4 +56,8 @@ class ClearSkyWatcher {
         return persistenceManager.getCountries()
     }
     
+    func getRegions(inCountry country: String) -> [Region] {
+        return persistenceManager.getRegions(inCountry: country)
+    }
+    
 }

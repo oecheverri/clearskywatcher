@@ -19,7 +19,7 @@ extension Forecast {
 
     @NSManaged public var cloud: Int16
     @NSManaged public var darkness: Int16
-    @NSManaged public var date: NSDate?
+    @NSManaged public var date: NSDate
     @NSManaged public var humidity: Int16
     @NSManaged public var limitingMagnitude: Double
     @NSManaged public var lunarAltitude: Double

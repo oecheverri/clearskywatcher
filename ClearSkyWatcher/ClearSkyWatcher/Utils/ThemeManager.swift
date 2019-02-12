@@ -36,8 +36,10 @@ struct ThemeManager {
         proxyButton.setTitleColor(ThemeManager.buttonTextColor, for: .normal)
         proxyButton.backgroundColor = ThemeManager.buttonBackgroundColor
         
+        
         let proxyView = UIView.appearance()
         proxyView.backgroundColor = ThemeManager.backgroundColor
+        proxyView.tintColor = UIColor.red
         
     }
 }

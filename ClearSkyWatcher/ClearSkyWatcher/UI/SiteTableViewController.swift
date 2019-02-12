@@ -8,18 +8,36 @@
 
 import UIKit
 
-class SiteTableViewController: UITableViewController {
-
-//    @IBOutlet var tableView: UITableView!
+class SiteTableViewController: ThemedTableViewController {
     
-    var regions = ClearSkyWatcher.instance.getRegions().sorted{$0.name < $1.name}
+    enum Mode {
+        case Countries
+        case Regions
+    }
     
-    lazy var regionIndeces = { () -> [String] in
-        var indeces = Set<String>()
-        regions.forEach{indeces.insert(String($0.name.first!))}
-        return indeces.sorted()
+    let csw = ClearSkyWatcher.instance
+    var currentMode: Mode = .Countries
+    lazy var countries = {
+        csw.getCountries()
     }()
     
+    var currentCountry: String = ""
+    
+    var currentRegions: [Region] {
+        switch currentMode {
+        case .Countries:
+            return [Region]()
+        case .Regions:
+            return csw.getRegions(inCountry: currentCountry)
+        }
+    }
+    
+    var regionIndeces: [String] {
+        var indeces = Set<String>()
+        currentRegions.forEach{indeces.insert(String($0.name.first!))}
+        return indeces.sorted()
+  }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,41 +53,92 @@ class SiteTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return regions.count
+        switch (currentMode) {
+        case .Countries:
+            return 1
+        case .Regions:
+            return currentRegions.count
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return regions[section].observingSites.count
+        
+        switch currentMode {
+        case .Countries:
+            return countries.count
+        case .Regions:
+            return currentRegions[section].observingSites.count
+        }
+        
 
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SiteCell", for: indexPath)
-
-        let observingSite = regions[indexPath.section].observingSites.allObjects[indexPath.row] as? ObservingSite
+        switch currentMode {
+        case .Countries:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "RegionCell", for: indexPath)
+            cell.textLabel?.text = countries[indexPath.row]
+            return cell
+        case .Regions:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SiteCell", for: indexPath)
+            let observingSite = (currentRegions[indexPath.section].observingSites.allObjects as! [ObservingSite]).sorted(by: {$0.name < $1.name})[indexPath.row]
+            cell.textLabel?.text = observingSite.name
+            return cell
+        }
         
-        cell.textLabel?.text = observingSite?.name
-
-        return cell
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return regions[section].name
+        switch currentMode {
+        case .Countries:
+            return nil
+        default:
+            return currentRegions[section].name
+        }
+        
     }
     
     override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
-        for startIndex in 0..<regions.count {
-            if regions[startIndex].name.starts(with: title) {
-                return startIndex
+        switch currentMode {
+        case .Countries:
+            return 0
+        case .Regions:
+            for startIndex in 0..<currentRegions.count {
+                if currentRegions[startIndex].name.starts(with: title) {
+                    return startIndex
+                }
             }
         }
         return 0
     }
     
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return regionIndeces
+        switch currentMode {
+        case .Countries:
+            return nil
+        case .Regions:
+            return regionIndeces
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        switch(currentMode) {
+        case .Countries:
+            let destinationControler = segue.destination as! SiteTableViewController
+            destinationControler.currentCountry = (sender as! UITableViewCell).textLabel!.text!
+            destinationControler.currentMode = .Regions
+        case .Regions:
+            if let destinationController = segue.destination as? ObservingSiteViewController {
+                let cell = sender as! UITableViewCell
+                let indexPath = tableView.indexPath(for: cell)!
+                destinationController.observingSite = (currentRegions[indexPath.section].observingSites.allObjects as! [ObservingSite]).sorted(by: {$0.name < $1.name})[indexPath.row]
+            }
+            
+        }
+        
     }
     
     

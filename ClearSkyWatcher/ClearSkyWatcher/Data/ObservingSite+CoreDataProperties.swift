@@ -2,7 +2,7 @@
 //  ObservingSite+CoreDataProperties.swift
 //  ClearSkyWatcher
 //
-//  Created by Oscar Echeverri on 2019-02-08.
+//  Created by Oscar Echeverri on 2019-02-12.
 //  Copyright © 2019 FoxNet. All rights reserved.
 //
 //
@@ -17,12 +17,14 @@ extension ObservingSite {
         return NSFetchRequest<ObservingSite>(entityName: "ObservingSite")
     }
 
+    @NSManaged public var isFavourite: Bool
     @NSManaged public var key: String
     @NSManaged public var latitude: Float
     @NSManaged public var longitude: Float
     @NSManaged public var name: String
+    @NSManaged public var lastUpdated: NSDate
     @NSManaged public var containingRegion: Region?
-    @NSManaged public var forecasts: NSSet?
+    @NSManaged public var forecasts: NSSet
 
 }
 

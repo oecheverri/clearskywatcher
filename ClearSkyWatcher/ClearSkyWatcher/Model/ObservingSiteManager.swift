@@ -50,7 +50,21 @@ class ObservingSiteManager {
         return retValues.sorted()
     }
     
+    func populateForecast(forObservingSiteKey key: String, callbackOn: @escaping (Bool) -> Void) {
+        let observingSite = persistenceManager.getObservingSite(withKey: key)
+        NetworkHandler.sharedInstance.doRequest(with: (observingSite?.url!)!) { (result) -> Void in
+            if result.httpCode == Result.HTTP_OK {
+                let parasedForecast = ForecastParser.parse(rawData: result.responseData)
+                
+                
+            
+            }
+            
+        }
+        
+    }
     
+
 //    func seedRegions() {
 //        Region.generateRegions()
 //    }

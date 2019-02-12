@@ -77,11 +77,7 @@ class PersistenceManager {
     }
     
     func getAllRegions() -> [Region] {
-        let regionFetchRequest: Region.FetchRequest = Region.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
-        regionFetchRequest.sortDescriptors = [sortDescriptor]
-        let results = doFetch(fetchRequest: regionFetchRequest)
-        return results
+        return getRegions()
     }
     
     private func doFetch<T: NSManagedObject>(fetchRequest: NSFetchRequest<T>) -> [T] {
@@ -152,6 +148,18 @@ class PersistenceManager {
         return doFetch(fetchRequest: fetchRequest)
         
         
+    }
+    
+    func getRegions(inCountry: String? = nil) -> [Region]{
+        let regionFetchRequest: Region.FetchRequest = Region.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        regionFetchRequest.sortDescriptors = [sortDescriptor]
+        if let country = inCountry {
+            let countryPredicate = NSPredicate(format: "country=%@", country)
+            regionFetchRequest.predicate = countryPredicate
+        }
+        let results = doFetch(fetchRequest: regionFetchRequest)
+        return results
     }
     
     func getCountries() -> [String] {

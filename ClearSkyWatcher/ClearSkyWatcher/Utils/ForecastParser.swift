@@ -12,8 +12,9 @@ struct ForecastParser {
     
     typealias ForecastBlob = (date:Date, cloudCover: Int, transparency: Int, seeing: Int, wind:Int, humidity:Int, temperature: Int, limitingMagnitude: Double, solarAltitude: Double, lunarAltitude: Double)
     
+    private init(){}
     
-    func parse(rawData:String) -> (utcOffset: Double, lpRating: (lowerBound: Double, upperBound: Double), forecasts: [ForecastBlob]) {
+    static func parse(rawData:String) -> (utcOffset: Double, lpRating: (lowerBound: Double, upperBound: Double), forecasts: [ForecastBlob]) {
         
         var forecastArray = [ForecastBlob]()
         var utcOffset: Double = 0.0
@@ -51,7 +52,7 @@ struct ForecastParser {
         return (utcOffset, lpRating, forecastArray)
     }
     
-    private func parse(utcOffsetString: String) -> Double {
+    private static func parse(utcOffsetString: String) -> Double {
         let splitPoint = utcOffsetString.lastIndex(of: "\t")
         if splitPoint != nil {
             let valueString = String(utcOffsetString[splitPoint!..<utcOffsetString.endIndex])
@@ -61,7 +62,7 @@ struct ForecastParser {
         return 0.0
     }
     
-    private func parse(lpRatingString: String) -> (lowerBound: Double, upperBound: Double) {
+    private static func parse(lpRatingString: String) -> (lowerBound: Double, upperBound: Double) {
         
         let splitPoint = lpRatingString.lastIndex(of: " ")
         if splitPoint != nil {
@@ -77,7 +78,7 @@ struct ForecastParser {
         
     }
     
-    private func parse(forecastBlockStrings: [String], darknessBlockStrings: [String], utcOffset: Double) -> [ForecastBlob] {
+    private static func parse(forecastBlockStrings: [String], darknessBlockStrings: [String], utcOffset: Double) -> [ForecastBlob] {
         typealias ForecastNib = (date:Date, cloudCover: Int, transparency:Int, seeing: Int, wind: Int, humidity: Int, temperature:Int)
         
         var forecastBlobs = [ForecastBlob]()
@@ -118,7 +119,7 @@ struct ForecastParser {
         return forecastBlobs
     }
     
-    private func parse(dateString: String, utcOffset: Double) -> Date? {
+    private static func parse(dateString: String, utcOffset: Double) -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         dateFormatter.timeZone = TimeZone(secondsFromGMT: Int(utcOffset * 60 * 60))
