@@ -24,13 +24,16 @@
 		F60EFF0022093E5900A86806 /* ClearSkyWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60EFEFF22093E5900A86806 /* ClearSkyWatcher.swift */; };
 		F625E02B2212792000F0BB03 /* ThemedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F625E02A2212792000F0BB03 /* ThemedTableViewController.swift */; };
 		F625E02D22127DED00F0BB03 /* ThemedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F625E02C22127DED00F0BB03 /* ThemedViewController.swift */; };
-		F625E02F22127E3D00F0BB03 /* ObservingSiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F625E02E22127E3D00F0BB03 /* ObservingSiteViewController.swift */; };
+		F625E0512218BB3C00F0BB03 /* ObservingSiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F625E0502218BB3C00F0BB03 /* ObservingSiteViewController.swift */; };
+		F625E060221900EF00F0BB03 /* ForecastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F625E05E221900EF00F0BB03 /* ForecastCollectionViewCell.swift */; };
+		F625E061221900EF00F0BB03 /* ForecastCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F625E05F221900EF00F0BB03 /* ForecastCollectionViewCell.xib */; };
 		F62A874D201BFF3B00260619 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62A874C201BFF3B00260619 /* AppDelegate.swift */; };
 		F62A8754201BFF3C00260619 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F62A8752201BFF3C00260619 /* Main.storyboard */; };
 		F62A8756201BFF3C00260619 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F62A8755201BFF3C00260619 /* Assets.xcassets */; };
 		F62A8759201BFF3C00260619 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F62A8757201BFF3C00260619 /* LaunchScreen.storyboard */; };
 		F642409320AFC8E500C52D65 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F642409220AFC8E500C52D65 /* ThemeManager.swift */; };
 		F6C99645203A6EBF006FE287 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C99644203A6EBF006FE287 /* Logger.swift */; };
+		F6E1B3AE221BAE9B006379A0 /* DateHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E1B3AD221BAE9B006379A0 /* DateHeaderCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,7 +54,9 @@
 		F60EFEFF22093E5900A86806 /* ClearSkyWatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearSkyWatcher.swift; sourceTree = "<group>"; };
 		F625E02A2212792000F0BB03 /* ThemedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemedTableViewController.swift; sourceTree = "<group>"; };
 		F625E02C22127DED00F0BB03 /* ThemedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemedViewController.swift; sourceTree = "<group>"; };
-		F625E02E22127E3D00F0BB03 /* ObservingSiteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservingSiteViewController.swift; sourceTree = "<group>"; };
+		F625E0502218BB3C00F0BB03 /* ObservingSiteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservingSiteViewController.swift; sourceTree = "<group>"; };
+		F625E05E221900EF00F0BB03 /* ForecastCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCollectionViewCell.swift; sourceTree = "<group>"; };
+		F625E05F221900EF00F0BB03 /* ForecastCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForecastCollectionViewCell.xib; sourceTree = "<group>"; };
 		F62A8749201BFF3B00260619 /* ClearSkyWatcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClearSkyWatcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F62A874C201BFF3B00260619 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F62A8753201BFF3C00260619 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -60,6 +65,7 @@
 		F62A875A201BFF3C00260619 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F642409220AFC8E500C52D65 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		F6C99644203A6EBF006FE287 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		F6E1B3AD221BAE9B006379A0 /* DateHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,11 +132,14 @@
 		F60EFEFC22093B7300A86806 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				F625E05E221900EF00F0BB03 /* ForecastCollectionViewCell.swift */,
+				F625E05F221900EF00F0BB03 /* ForecastCollectionViewCell.xib */,
 				F60EFEFD22093B8700A86806 /* SiteTableViewController.swift */,
 				F60BC366220954BB0071674F /* InitializerViewController.swift */,
 				F625E02A2212792000F0BB03 /* ThemedTableViewController.swift */,
 				F625E02C22127DED00F0BB03 /* ThemedViewController.swift */,
-				F625E02E22127E3D00F0BB03 /* ObservingSiteViewController.swift */,
+				F625E0502218BB3C00F0BB03 /* ObservingSiteViewController.swift */,
+				F6E1B3AD221BAE9B006379A0 /* DateHeaderCollectionViewCell.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -237,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F62A8759201BFF3C00260619 /* LaunchScreen.storyboard in Resources */,
+				F625E061221900EF00F0BB03 /* ForecastCollectionViewCell.xib in Resources */,
 				F62A8756201BFF3C00260619 /* Assets.xcassets in Resources */,
 				F62A8754201BFF3C00260619 /* Main.storyboard in Resources */,
 			);
@@ -251,7 +261,9 @@
 			files = (
 				F60BC382220A804E0071674F /* Region+CoreDataClass.swift in Sources */,
 				F6087A992031EFFF007426F5 /* ObservingSiteManager.swift in Sources */,
+				F625E0512218BB3C00F0BB03 /* ObservingSiteViewController.swift in Sources */,
 				F60BC383220A804E0071674F /* Region+CoreDataProperties.swift in Sources */,
+				F625E060221900EF00F0BB03 /* ForecastCollectionViewCell.swift in Sources */,
 				F60BC37A220A7BF90071674F /* Forecast+CoreDataClass.swift in Sources */,
 				F60BC37F220A7C3B0071674F /* PersistenceManager.swift in Sources */,
 				F62A874D201BFF3B00260619 /* AppDelegate.swift in Sources */,
@@ -262,8 +274,8 @@
 				F60BC37C220A7BF90071674F /* ObservingSite+CoreDataClass.swift in Sources */,
 				F6C99645203A6EBF006FE287 /* Logger.swift in Sources */,
 				F60EFF0022093E5900A86806 /* ClearSkyWatcher.swift in Sources */,
-				F625E02F22127E3D00F0BB03 /* ObservingSiteViewController.swift in Sources */,
 				F625E02B2212792000F0BB03 /* ThemedTableViewController.swift in Sources */,
+				F6E1B3AE221BAE9B006379A0 /* DateHeaderCollectionViewCell.swift in Sources */,
 				F60BC37B220A7BF90071674F /* Forecast+CoreDataProperties.swift in Sources */,
 				F625E02D22127DED00F0BB03 /* ThemedViewController.swift in Sources */,
 				F603F61E2039180D00129F25 /* NetworkHandler.swift in Sources */,

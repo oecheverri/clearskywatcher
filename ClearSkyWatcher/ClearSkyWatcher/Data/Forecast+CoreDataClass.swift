@@ -12,5 +12,9 @@ import CoreData
 
 
 public class Forecast: NSManagedObject {
+    
+    lazy var date: Date? = {
+        return forecastDate as Date?
+    }()
 
 }

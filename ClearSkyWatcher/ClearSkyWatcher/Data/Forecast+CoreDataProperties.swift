@@ -2,7 +2,7 @@
 //  Forecast+CoreDataProperties.swift
 //  ClearSkyWatcher
 //
-//  Created by Oscar Echeverri on 2019-02-08.
+//  Created by Oscar Echeverri on 2019-02-13.
 //  Copyright © 2019 FoxNet. All rights reserved.
 //
 //
@@ -17,16 +17,16 @@ extension Forecast {
         return NSFetchRequest<Forecast>(entityName: "Forecast")
     }
 
-    @NSManaged public var cloud: Int16
-    @NSManaged public var darkness: Int16
-    @NSManaged public var date: NSDate
-    @NSManaged public var humidity: Int16
+    @NSManaged public var cloud: Int32
+    @NSManaged public var forecastDate: NSDate?
+    @NSManaged public var humidity: Int32
     @NSManaged public var limitingMagnitude: Double
     @NSManaged public var lunarAltitude: Double
-    @NSManaged public var seeing: Int16
+    @NSManaged public var seeing: Int32
     @NSManaged public var solarAltitude: Double
-    @NSManaged public var transparency: Int16
-    @NSManaged public var wind: Int16
+    @NSManaged public var transparency: Int32
+    @NSManaged public var wind: Int32
+    @NSManaged public var temperature: Int32
     @NSManaged public var belongsTo: ObservingSite?
 
 }

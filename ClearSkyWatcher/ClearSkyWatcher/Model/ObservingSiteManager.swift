@@ -50,23 +50,38 @@ class ObservingSiteManager {
         return retValues.sorted()
     }
     
-    func populateForecast(forObservingSiteKey key: String, callbackOn: @escaping (Bool) -> Void) {
+    func populateForecast(forObservingSiteKey key: String, callbackOn callback: @escaping (Bool) -> Void) {
         let observingSite = persistenceManager.getObservingSite(withKey: key)
+        persistenceManager.delete(entities: observingSite?.forecasts.allObjects as! [Forecast])
         NetworkHandler.sharedInstance.doRequest(with: (observingSite?.url!)!) { (result) -> Void in
             if result.httpCode == Result.HTTP_OK {
-                let parasedForecast = ForecastParser.parse(rawData: result.responseData)
+                let forecastData = ForecastParser.parse(rawData: result.responseData)
                 
-                
-            
+                self.persistenceManager.doAsync(block: { (context) in
+                    
+                    observingSite?.lastUpdatedDate = Date()
+                    observingSite?.utcOffset = forecastData.utcOffset
+                    observingSite?.lpUpper = forecastData.lpRating.upperBound
+                    observingSite?.lpLower = forecastData.lpRating.lowerBound
+                    
+                    for forecastInfo in forecastData.forecasts {
+                        let newForecast = Forecast(context: context)
+                        newForecast.belongsTo = observingSite
+                        newForecast.cloud = Int32(forecastInfo.cloudCover)
+                        newForecast.forecastDate = forecastInfo.date as NSDate
+                        newForecast.humidity = Int32(forecastInfo.humidity)
+                        newForecast.limitingMagnitude = forecastInfo.limitingMagnitude
+                        newForecast.lunarAltitude = forecastInfo.lunarAltitude
+                        newForecast.seeing = Int32(forecastInfo.seeing)
+                        newForecast.solarAltitude = forecastInfo.solarAltitude
+                        newForecast.temperature = Int32(forecastInfo.temperature)
+                        newForecast.wind = Int32(forecastInfo.wind)
+                        newForecast.transparency = Int32(forecastInfo.transparency)
+                        
+                    }
+                }, callbackWhenComplete: callback)
             }
-            
         }
-        
     }
-    
-
-//    func seedRegions() {
-//        Region.generateRegions()
-//    }
 }
 

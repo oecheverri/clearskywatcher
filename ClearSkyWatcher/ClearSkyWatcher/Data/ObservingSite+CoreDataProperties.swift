@@ -19,10 +19,13 @@ extension ObservingSite {
 
     @NSManaged public var isFavourite: Bool
     @NSManaged public var key: String
+    @NSManaged public var lastUpdated: NSDate?
     @NSManaged public var latitude: Float
     @NSManaged public var longitude: Float
     @NSManaged public var name: String
-    @NSManaged public var lastUpdated: NSDate
+    @NSManaged public var utcOffset: Double
+    @NSManaged public var lpUpper: Double
+    @NSManaged public var lpLower: Double
     @NSManaged public var containingRegion: Region?
     @NSManaged public var forecasts: NSSet
 

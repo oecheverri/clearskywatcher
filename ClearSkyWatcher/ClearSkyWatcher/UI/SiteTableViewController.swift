@@ -16,7 +16,17 @@ class SiteTableViewController: ThemedTableViewController {
     }
     
     let csw = ClearSkyWatcher.instance
-    var currentMode: Mode = .Countries
+    
+    var currentMode: Mode = .Countries {
+        didSet {
+            switch currentMode {
+            case .Countries:
+                self.title = "Countries"
+            case .Regions:
+                self.title =  "Observing Sites"
+            }
+        }
+    }
     lazy var countries = {
         csw.getCountries()
     }()
@@ -36,8 +46,13 @@ class SiteTableViewController: ThemedTableViewController {
         var indeces = Set<String>()
         currentRegions.forEach{indeces.insert(String($0.name.first!))}
         return indeces.sorted()
-  }
+    }
+    
 
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.title = "Countries"
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         

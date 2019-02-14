@@ -82,11 +82,10 @@ class PersistenceManager {
     
     private func doFetch<T: NSManagedObject>(fetchRequest: NSFetchRequest<T>) -> [T] {
         do {
-            let context = Thread.isMainThread ? self.uiContext : self.context
             let result = try context.fetch(fetchRequest)
             return result
         } catch {
-            print(error)
+            logE(error.localizedDescription)
             return [T]()
         }
     }
@@ -180,9 +179,31 @@ class PersistenceManager {
             }
             return countries
         } catch {
-            print(error)
+            logE(error.localizedDescription)
         }
         return [String]()
     }
-
+    
+    func delete(entities: [NSManagedObject]) {
+        context.perform {
+            for entity in entities {
+                self.context.delete(entity)
+            }
+            do {
+                try self.context.save()
+            } catch {
+                logE(error.localizedDescription)
+            }
+        }
+    }
+    func delete(entity: NSManagedObject) {
+        context.perform {
+            self.context.delete(entity)
+            do {
+                try self.context.save()
+            } catch {
+                logE(error.localizedDescription)
+            }
+        }
+    }
 }

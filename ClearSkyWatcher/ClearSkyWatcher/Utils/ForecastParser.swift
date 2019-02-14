@@ -66,11 +66,15 @@ struct ForecastParser {
         
         let splitPoint = lpRatingString.lastIndex(of: " ")
         if splitPoint != nil {
-            let valueStrings = String(lpRatingString[lpRatingString.index(after: lpRatingString.firstIndex(of: "\"")!)..<lpRatingString.lastIndex(of: "\"")!]).replacingOccurrences(of: " to ", with: "|").split(separator: "|")
+            var lowerBound = 17.80
+            var upperBound = Double.infinity
             
-            let lowerBound = NSString(string: String(valueStrings[0])).doubleValue
-            let upperBound = NSString(string: String(valueStrings[1])).doubleValue
-            
+            if !lpRatingString.contains("<") {
+                let valueStrings = String(lpRatingString[lpRatingString.index(after: lpRatingString.firstIndex(of: "\"")!)..<lpRatingString.lastIndex(of: "\"")!]).replacingOccurrences(of: " to ", with: "|").split(separator: "|")
+                
+                lowerBound = NSString(string: String(valueStrings[0])).doubleValue
+                upperBound = NSString(string: String(valueStrings[1])).doubleValue
+            }
             return (lowerBound, upperBound)
         }
         logE("LP Rating Not Found")
@@ -95,7 +99,7 @@ struct ForecastParser {
                 let seeing = Int(bits[3]) ?? -1
                 let wind = Int(bits[4]) ?? -1
                 let humidity = Int(bits[5]) ?? -1
-                let temperature = Int(bits[6]) ?? -1
+                let temperature = bits.count == 7 ? Int(bits[6]) ?? -1 : -1
                 
                 forecastNibs[forecastDate] = (forecastDate, cloudCover, transparency, seeing, wind, humidity, temperature)
             }

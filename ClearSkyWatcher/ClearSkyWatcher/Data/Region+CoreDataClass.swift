@@ -31,34 +31,6 @@ public class Region: NSManagedObject {
         }
     }
     
-//    static func generateRegions(){
-//        for regionName in canadianRegionNames {
-//            let region = Region(context: PersistenceManager.shared.context)
-//            region.name = regionName
-//            region.country = "Canada"
-//        }
-//
-//        for regionName in usRegionNanes {
-//            let region = Region(context: PersistenceManager.shared.context)
-//            region.name = regionName
-//            region.country = "USA"
-//        }
-//
-//
-//        for regionName in mexicanRegionNames {
-//            let region = Region(context: PersistenceManager.shared.context)
-//            region.name = regionName
-//            region.country = "Mexico"
-//        }
-//
-//        for regionName in caribbeanRegionNames {
-//            let region = Region(context: PersistenceManager.shared.context)
-//            region.name = regionName
-//            region.country = "Caribbeans"
-//        }
-//        PersistenceManager.shared.save()
-//    }
-    
     static func GetCountryName(forRegionName regionName: String) -> String{
         if canadianRegionNames.contains(regionName) {
             return "Canada"

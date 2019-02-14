@@ -11,8 +11,9 @@ import Foundation
 class ClearSkyWatcher {
     
     static let instance: ClearSkyWatcher = ClearSkyWatcher()
-    static let OneDayAsSeconds: Double = 60 * 60 * 24
+    
     static let TwelveHoursAsSeconds: Double = 60 * 60 * 12
+    static let OneDayAsSeconds: Double = TwelveHoursAsSeconds * 2
     
     private let observingSiteManager = ObservingSiteManager()
     private let persistenceManager = PersistenceManager.shared
@@ -31,10 +32,6 @@ class ClearSkyWatcher {
     private init() {}
     
     func start(callingWhenReady notifyReady: @escaping ((Bool)->Void)) {
-//        if shouldSeedRegions {
-//            observingSiteManager.seedRegions()
-//            SettingsManager.shared.regionsHaveBeenSeeded()
-//        }
         
         if shouldUpdateDatabase {
             observingSiteManager.populateObservingSites {
@@ -58,6 +55,16 @@ class ClearSkyWatcher {
     
     func getRegions(inCountry country: String) -> [Region] {
         return persistenceManager.getRegions(inCountry: country)
+    }
+    
+    func requestForecast(forSite site: ObservingSite, callbackOn callback: @escaping ([Forecast]) -> Void){
+        if site.lastUpdatedDate == nil || Date().timeIntervalSince(site.lastUpdatedDate!) > ClearSkyWatcher.TwelveHoursAsSeconds {
+            observingSiteManager.populateForecast(forObservingSiteKey: site.key, callbackOn: { success in
+                callback( success ? site.forecasts.sorted(by: {($0 as! Forecast).date! < ($1 as! Forecast).date!}) as! [Forecast] : [Forecast]())
+            } )
+        } else {
+            callback(site.forecasts.sorted(by: {($0 as! Forecast).date! < ($1 as! Forecast).date!}) as! [Forecast])
+        }
     }
     
 }
