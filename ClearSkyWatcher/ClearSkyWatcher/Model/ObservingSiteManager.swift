@@ -18,31 +18,49 @@ class ObservingSiteManager {
     }()
     
     func populateObservingSites(callbackOn callback: @escaping (Bool) -> Void ) -> Void {
-        NetworkHandler.sharedInstance.doRequest(with: ObservingSiteManager.KEYS_URL){ [unowned self] (result) -> Void in
-            if result.httpCode == Result.HTTP_OK {
-                var observingSiteData = (sortedKeys: [String](), sortedProps: [String]())
-                observingSiteData.sortedKeys = self.processResponse(rawData: result.responseData)
-                NetworkHandler.sharedInstance.doRequest(with: ObservingSiteManager.PROPS_URL){ [unowned self] (result) -> Void in
-                    if result.httpCode == Result.HTTP_OK {
-                        observingSiteData.sortedProps = self.processResponse(rawData: result.responseData)
-                        for index in 0..<observingSiteData.sortedKeys.count {
-                            let currentKeyString = observingSiteData.sortedKeys[index]
-                            let currentPropString = observingSiteData.sortedProps[index]
-                            if currentKeyString.isEmpty || currentPropString.isEmpty {
-                                continue
-                            }
-                            ObservingSite.updateOrCreate(withKeyString: observingSiteData.sortedKeys[index], withPropertyString: observingSiteData.sortedProps[index], callbackOnComplete: index==(observingSiteData.sortedKeys.count-1) ? callback : nil)
-                        }
-                    } else {
-                        logE("Failed to get observing site properties: HTTP:\(result.httpCode) : \(result.responseData)" )
-                        callback(false)
-                    }
+        
+        let networkRequestGroup = DispatchGroup()
+        var storedResult = Result()
+        storedResult.httpCode = Result.HTTP_OK
+        
+        var observingSiteData = (sortedKeys: [String](), sortedProps: [String]())
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            networkRequestGroup.enter()
+            NetworkHandler.sharedInstance.doRequest(with: ObservingSiteManager.KEYS_URL){ [unowned self] (result) -> Void in
+                if result.httpCode == Result.HTTP_OK {
+                    observingSiteData.sortedKeys = self.processResponse(rawData: result.responseData)
+                } else {
+                    logE("Failed to get observing site keys: HTTP:\(result.httpCode) : \(result.responseData)" )
+                    storedResult = result
                 }
-            } else {
-                logE("Failed to get observing site keys: HTTP:\(result.httpCode) : \(result.responseData)" )
-                callback(false)
+                logD("Leaving Keys Group")
+                networkRequestGroup.leave()
             }
         }
+        DispatchQueue.global(qos: .userInitiated).async {
+            networkRequestGroup.enter()
+            NetworkHandler.sharedInstance.doRequest(with: ObservingSiteManager.PROPS_URL){ [unowned self] (result) -> Void in
+                if result.httpCode == Result.HTTP_OK {
+                    observingSiteData.sortedProps = self.processResponse(rawData: result.responseData)
+                } else {
+                    logE("Failed to get observing site properties: HTTP:\(result.httpCode) : \(result.responseData)" )
+                    storedResult = result
+                }
+                logD("Leaving Props Group")
+                networkRequestGroup.leave()
+            }
+        }
+        
+        logD("Waiting for network requests..")
+        networkRequestGroup.wait()
+        logD("Done waiting for network requests..")
+        if storedResult.httpCode == Result.HTTP_OK {
+            ObservingSite.updateOrCreateSites(withRawData: observingSiteData, callbackOnComplete: callback)
+        } else {
+            callback(false)
+        }
+        
     }
     
     private func processResponse(rawData:String) -> [String] {
@@ -70,7 +88,7 @@ class ObservingSiteManager {
                         newForecast.cloud = Int32(forecastInfo.cloudCover)
                         newForecast.forecastDate = forecastInfo.date as NSDate
                         newForecast.humidity = Int32(forecastInfo.humidity)
-                        newForecast.limitingMagnitude = forecastInfo.limitingMagnitude
+                        newForecast.limitingMagnitudesTrans = forecastInfo.limitingMagnitudes as NSObject
                         newForecast.lunarAltitude = forecastInfo.lunarAltitude
                         newForecast.seeing = Int32(forecastInfo.seeing)
                         newForecast.solarAltitude = forecastInfo.solarAltitude
@@ -84,4 +102,3 @@ class ObservingSiteManager {
         }
     }
 }
-

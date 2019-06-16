@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sTg-4A-mUs">
-                        <rect key="frame" x="0.0" y="0.0" width="50" height="150"/>
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="200"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="☀️" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uf1-AC-R1s">
                                 <rect key="frame" x="12" y="65" width="26" height="20.5"/>
@@ -37,7 +37,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qq-5V-iAh">
                         <rect key="frame" x="4" y="0.0" width="42" height="21"/>
@@ -46,23 +46,28 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="joW-61-tad">
-                        <rect key="frame" x="0.0" y="150" width="50" height="150"/>
+                        <rect key="frame" x="0.0" y="200" width="50" height="100"/>
                         <color key="backgroundColor" red="0.15045681109906703" green="0.33643321700507611" blue="0.073254092803912749" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                 </subviews>
             </view>
+            <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="7qq-5V-iAh" firstAttribute="top" secondItem="ZTg-uK-7eu" secondAttribute="top" id="5iY-Nm-yGp"/>
                 <constraint firstItem="sTg-4A-mUs" firstAttribute="trailing" secondItem="joW-61-tad" secondAttribute="trailing" id="9ok-vS-8RL"/>
                 <constraint firstItem="7qq-5V-iAh" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="DHn-rF-sfD"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="joW-61-tad" secondAttribute="bottom" id="EPE-Tv-nA1"/>
                 <constraint firstItem="joW-61-tad" firstAttribute="width" secondItem="sTg-4A-mUs" secondAttribute="width" id="Kz8-YA-bQ7"/>
+                <constraint firstItem="sTg-4A-mUs" firstAttribute="height" secondItem="joW-61-tad" secondAttribute="height" multiplier="2" id="LZj-rv-Vai"/>
                 <constraint firstItem="sTg-4A-mUs" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="O4I-FM-Hlg"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="sTg-4A-mUs" secondAttribute="trailing" id="Phy-jW-fEY"/>
                 <constraint firstItem="sTg-4A-mUs" firstAttribute="leading" secondItem="joW-61-tad" secondAttribute="leading" id="Q1U-od-LYe"/>
                 <constraint firstItem="joW-61-tad" firstAttribute="top" secondItem="sTg-4A-mUs" secondAttribute="bottom" id="TPh-p1-IpL"/>
+                <constraint firstItem="sTg-4A-mUs" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" id="TzX-HY-Sts"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="joW-61-tad" secondAttribute="trailing" id="a1H-lN-L6H"/>
                 <constraint firstItem="sTg-4A-mUs" firstAttribute="top" secondItem="ZTg-uK-7eu" secondAttribute="top" id="hZ8-Bu-qE4"/>
                 <constraint firstItem="sTg-4A-mUs" firstAttribute="centerX" secondItem="7qq-5V-iAh" secondAttribute="centerX" id="k3R-ty-YmM"/>
-                <constraint firstItem="sTg-4A-mUs" firstAttribute="height" secondItem="joW-61-tad" secondAttribute="height" id="olf-gH-AR7"/>
+                <constraint firstItem="joW-61-tad" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" id="ox0-2t-KMI"/>
                 <constraint firstItem="joW-61-tad" firstAttribute="centerX" secondItem="sTg-4A-mUs" secondAttribute="centerX" id="vqE-EQ-hrC"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>

@@ -19,11 +19,7 @@ class ClearSkyWatcher {
     private let persistenceManager = PersistenceManager.shared
     
     private var isStarted = false
-    
-    
-    private var shouldSeedRegions: Bool {
-        return !SettingsManager.shared.haveRegionsBeenSeeded
-    }
+
     
     private var shouldUpdateDatabase: Bool {
         return Date().timeIntervalSince(SettingsManager.shared.databaseLastUpdate) > ClearSkyWatcher.OneDayAsSeconds
@@ -54,7 +50,14 @@ class ClearSkyWatcher {
     }
     
     func getRegions(inCountry country: String) -> [Region] {
-        return persistenceManager.getRegions(inCountry: country)
+        
+        var regions = [Region]()
+        DispatchQueue.global(qos: .userInteractive).sync {
+            regions = persistenceManager.getRegions(inCountry: country)
+        }
+        return regions
+        
+        
     }
     
     func requestForecast(forSite site: ObservingSite, callbackOn callback: @escaping ([Forecast]) -> Void){

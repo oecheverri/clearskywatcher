@@ -26,7 +26,7 @@ class InitializerViewController: UIViewController {
     func clearSkyWatcherStarted(successfully success: Bool) -> Void {
         
         if success {
-            DispatchQueue.main.async(execute: {
+            DispatchQueue.main.async(execute: {[unowned self]() in
                 self.performSegue(withIdentifier: "Launch", sender: nil)
             })
         } else {

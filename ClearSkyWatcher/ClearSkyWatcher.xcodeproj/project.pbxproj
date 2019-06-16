@@ -14,7 +14,6 @@
 		F60BC367220954BB0071674F /* InitializerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60BC366220954BB0071674F /* InitializerViewController.swift */; };
 		F60BC36B2209BD600071674F /* ClearSkyWatcher.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F60BC3692209BD600071674F /* ClearSkyWatcher.xcdatamodeld */; };
 		F60BC37A220A7BF90071674F /* Forecast+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60BC376220A7BF90071674F /* Forecast+CoreDataClass.swift */; };
-		F60BC37B220A7BF90071674F /* Forecast+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60BC377220A7BF90071674F /* Forecast+CoreDataProperties.swift */; };
 		F60BC37C220A7BF90071674F /* ObservingSite+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60BC378220A7BF90071674F /* ObservingSite+CoreDataClass.swift */; };
 		F60BC37D220A7BF90071674F /* ObservingSite+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60BC379220A7BF90071674F /* ObservingSite+CoreDataProperties.swift */; };
 		F60BC37F220A7C3B0071674F /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60BC37E220A7C3B0071674F /* PersistenceManager.swift */; };
@@ -32,6 +31,7 @@
 		F62A8756201BFF3C00260619 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F62A8755201BFF3C00260619 /* Assets.xcassets */; };
 		F62A8759201BFF3C00260619 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F62A8757201BFF3C00260619 /* LaunchScreen.storyboard */; };
 		F642409320AFC8E500C52D65 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F642409220AFC8E500C52D65 /* ThemeManager.swift */; };
+		F69E000F22A37C16005CD4D3 /* Forecast+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69E000E22A37C16005CD4D3 /* Forecast+CoreDataProperties.swift */; };
 		F6C99645203A6EBF006FE287 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C99644203A6EBF006FE287 /* Logger.swift */; };
 		F6E1B3AE221BAE9B006379A0 /* DateHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E1B3AD221BAE9B006379A0 /* DateHeaderCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -44,7 +44,6 @@
 		F60BC366220954BB0071674F /* InitializerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitializerViewController.swift; sourceTree = "<group>"; };
 		F60BC36A2209BD600071674F /* ObservingSiteProperties.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ObservingSiteProperties.xcdatamodel; sourceTree = "<group>"; };
 		F60BC376220A7BF90071674F /* Forecast+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Forecast+CoreDataClass.swift"; sourceTree = "<group>"; };
-		F60BC377220A7BF90071674F /* Forecast+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Forecast+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F60BC378220A7BF90071674F /* ObservingSite+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservingSite+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F60BC379220A7BF90071674F /* ObservingSite+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservingSite+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F60BC37E220A7C3B0071674F /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
@@ -64,6 +63,7 @@
 		F62A8758201BFF3C00260619 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F62A875A201BFF3C00260619 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F642409220AFC8E500C52D65 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		F69E000E22A37C16005CD4D3 /* Forecast+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Forecast+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F6C99644203A6EBF006FE287 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		F6E1B3AD221BAE9B006379A0 /* DateHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,9 +101,9 @@
 			children = (
 				F60BC380220A804E0071674F /* Region+CoreDataClass.swift */,
 				F60BC381220A804E0071674F /* Region+CoreDataProperties.swift */,
-				F60BC376220A7BF90071674F /* Forecast+CoreDataClass.swift */,
-				F60BC377220A7BF90071674F /* Forecast+CoreDataProperties.swift */,
 				F60BC378220A7BF90071674F /* ObservingSite+CoreDataClass.swift */,
+				F60BC376220A7BF90071674F /* Forecast+CoreDataClass.swift */,
+				F69E000E22A37C16005CD4D3 /* Forecast+CoreDataProperties.swift */,
 				F60BC379220A7BF90071674F /* ObservingSite+CoreDataProperties.swift */,
 				F60BC3692209BD600071674F /* ClearSkyWatcher.xcdatamodeld */,
 				F60BC37E220A7C3B0071674F /* PersistenceManager.swift */,
@@ -218,6 +218,7 @@
 				TargetAttributes = {
 					F62A8748201BFF3B00260619 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -261,6 +262,7 @@
 			files = (
 				F60BC382220A804E0071674F /* Region+CoreDataClass.swift in Sources */,
 				F6087A992031EFFF007426F5 /* ObservingSiteManager.swift in Sources */,
+				F69E000F22A37C16005CD4D3 /* Forecast+CoreDataProperties.swift in Sources */,
 				F625E0512218BB3C00F0BB03 /* ObservingSiteViewController.swift in Sources */,
 				F60BC383220A804E0071674F /* Region+CoreDataProperties.swift in Sources */,
 				F625E060221900EF00F0BB03 /* ForecastCollectionViewCell.swift in Sources */,
@@ -276,7 +278,6 @@
 				F60EFF0022093E5900A86806 /* ClearSkyWatcher.swift in Sources */,
 				F625E02B2212792000F0BB03 /* ThemedTableViewController.swift in Sources */,
 				F6E1B3AE221BAE9B006379A0 /* DateHeaderCollectionViewCell.swift in Sources */,
-				F60BC37B220A7BF90071674F /* Forecast+CoreDataProperties.swift in Sources */,
 				F625E02D22127DED00F0BB03 /* ThemedViewController.swift in Sources */,
 				F603F61E2039180D00129F25 /* NetworkHandler.swift in Sources */,
 				F60EFEFE22093B8700A86806 /* SiteTableViewController.swift in Sources */,
@@ -358,7 +359,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				"INFOPLIST_FILE[sdk=*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -411,7 +412,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -429,7 +430,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.foxnet.ClearSkyWatcher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -444,7 +445,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.foxnet.ClearSkyWatcher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

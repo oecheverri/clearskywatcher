@@ -10,7 +10,9 @@ import CoreData
 
 class PersistenceManager {
     
-    static var shared = PersistenceManager() 
+    static var shared = PersistenceManager()
+    
+    
     
     private init() {}
     
@@ -28,6 +30,8 @@ class PersistenceManager {
     lazy var uiContext = {
         return persistentContainer.viewContext
     }()
+    
+    var dispatchQueue = DispatchQueue(label: "PersistentManagerBackgroundQueue")
     
     lazy var context: NSManagedObjectContext = {
         let context = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
@@ -81,8 +85,12 @@ class PersistenceManager {
     }
     
     private func doFetch<T: NSManagedObject>(fetchRequest: NSFetchRequest<T>) -> [T] {
+        
         do {
-            let result = try context.fetch(fetchRequest)
+            var result = [T]()
+            try dispatchQueue.sync {
+                result = try context.fetch(fetchRequest)
+            }
             return result
         } catch {
             logE(error.localizedDescription)
@@ -90,31 +98,32 @@ class PersistenceManager {
         }
     }
     
-    func doAsync(block: @escaping (NSManagedObjectContext) -> Void, callbackWhenComplete complete: ((Bool) -> Void)? ) {
-        context.perform {
-            block(self.context)
-            do {
-                try self.context.save()
-                self.uiContext.performAndWait {
-                    do {
-                        try self.uiContext.save()
-                        if complete != nil {
-                            complete!(true)
-                        }
-                    } catch {
-                        logE("Error occured saving parebt context: \(error.localizedDescription)")
-                        if complete != nil {
-                            complete!(false)
+    func doAsync(block: @escaping (NSManagedObjectContext) -> Void, callbackWhenComplete complete: ((Bool) -> Void)? = nil ) {
+        dispatchQueue.sync {
+            context.perform {
+                block(self.context)
+                do {
+                    try self.context.save()
+                    self.uiContext.performAndWait {
+                        do {
+                            try self.uiContext.save()
+                            if complete != nil {
+                                complete!(true)
+                            }
+                        } catch {
+                            logE("Error occured saving parebt context: \(error.localizedDescription)")
+                            if complete != nil {
+                                complete!(false)
+                            }
                         }
                     }
-                }
-            } catch {
-                logE("Error occured saving private context: \(error.localizedDescription)")
-                if complete != nil {
-                    complete!(false)
+                } catch {
+                    logE("Error occured saving private context: \(error.localizedDescription)")
+                    if complete != nil {
+                        complete!(false)
+                    }
                 }
             }
-            
         }
     }
     

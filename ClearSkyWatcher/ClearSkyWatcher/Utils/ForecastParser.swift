@@ -10,7 +10,8 @@ import Foundation
 
 struct ForecastParser {
     
-    typealias ForecastBlob = (date:Date, cloudCover: Int, transparency: Int, seeing: Int, wind:Int, humidity:Int, temperature: Int, limitingMagnitude: Double, solarAltitude: Double, lunarAltitude: Double)
+    typealias ForecastBlob = (date:Date, cloudCover: Int, transparency: Int, seeing: Int, wind:Int, humidity:Int, temperature: Int, limitingMagnitudes: [Double], solarAltitude: Double, lunarAltitude: Double)
+    typealias DarknessSegment = (date:Date, limitingMagnitude: Double, solarAltitude: Double, lunarAltitude: Double)
     
     private init(){}
     
@@ -83,44 +84,78 @@ struct ForecastParser {
     }
     
     private static func parse(forecastBlockStrings: [String], darknessBlockStrings: [String], utcOffset: Double) -> [ForecastBlob] {
-        typealias ForecastNib = (date:Date, cloudCover: Int, transparency:Int, seeing: Int, wind: Int, humidity: Int, temperature:Int)
+        typealias ForecasetSegment = (date:Date, cloudCover: Int, transparency:Int, seeing: Int, wind: Int, humidity: Int, temperature:Int)
         
         var forecastBlobs = [ForecastBlob]()
-        var forecastNibs = [Date : ForecastNib]()
+        let darknessSegments = parseDarknessSegments(darknessBlockStrings: darknessBlockStrings, utcOffset: utcOffset)
+        
         
         for var currentBlockString in forecastBlockStrings {
             currentBlockString = currentBlockString.replacingOccurrences(of: "\t", with: "")
             let bits = currentBlockString.between(firstIndexOf: "(", lastIndexOf: ")").split(separator: ",")
             let dateString = String(bits[0]).between(firstIndexOf: "\"", lastIndexOf: "\"")
             if let forecastDate = parse(dateString: dateString, utcOffset: utcOffset) {
+                var forecast: ForecastBlob
                 
-                let cloudCover = Int(bits[1]) ?? -1
-                let transparency = Int(bits[2]) ?? -1
-                let seeing = Int(bits[3]) ?? -1
-                let wind = Int(bits[4]) ?? -1
-                let humidity = Int(bits[5]) ?? -1
-                let temperature = bits.count == 7 ? Int(bits[6]) ?? -1 : -1
+                forecast.date = forecastDate
+                forecast.cloudCover = Int(bits[1]) ?? -1
+                forecast.transparency = Int(bits[2]) ?? -1
+                forecast.seeing = Int(bits[3]) ?? -1
+                forecast.wind = Int(bits[4]) ?? -1
+                forecast.humidity = Int(bits[5]) ?? -1
+                forecast.temperature = bits.count == 7 ? Int(bits[6]) ?? -1 : -1
                 
-                forecastNibs[forecastDate] = (forecastDate, cloudCover, transparency, seeing, wind, humidity, temperature)
+                let currentDarknessSegments = darknessSegments.filter {
+                    let darknessHour = Calendar.current.component(.hour, from: $0.date)
+                    let darknessDay = Calendar.current.component(.day, from: $0.date)
+                    
+                    let forecastHour = Calendar.current.component(.hour, from: forecastDate)
+                    let forecastDay = Calendar.current.component(.day, from: forecastDate)
+                    
+                    return darknessHour == forecastHour && darknessDay == forecastDay
+                }
+                
+                var magnitudes: [Double] = []
+                
+                var solarSum: Double = 0
+                var lunarSum: Double = 0
+                
+                for darknessSegment in currentDarknessSegments {
+                    magnitudes.append(darknessSegment.limitingMagnitude)
+                    solarSum += darknessSegment.solarAltitude
+                    lunarSum += darknessSegment.lunarAltitude
+                }
+                
+                forecast.limitingMagnitudes = magnitudes
+                forecast.solarAltitude = solarSum / Double(currentDarknessSegments.count)
+                forecast.lunarAltitude = lunarSum / Double(currentDarknessSegments.count)
+                
+                forecastBlobs.append(forecast)
+                
             }
         }
+        return forecastBlobs
+    }
+    
+    private static func parseDarknessSegments(darknessBlockStrings: [String], utcOffset: Double) -> [DarknessSegment] {
+        var darknessSegments: [DarknessSegment] = []
         
         for var currentDarknessBlock in darknessBlockStrings {
             currentDarknessBlock = currentDarknessBlock.replacingOccurrences(of: "\t", with: "")
             let bits = currentDarknessBlock.between(firstIndexOf: "(", lastIndexOf: ")").split(separator: ",")
             let dateString = String(bits[0]).between(firstIndexOf: "\"", lastIndexOf: "\"")
+            
             if let darknessDate = parse(dateString: dateString, utcOffset: utcOffset) {
-                if let forecastNib = forecastNibs[darknessDate] {
-                    let limitingMagnitude = Double(bits[1]) ?? Double.infinity
-                    let solarAltitude = Double(bits[2]) ?? Double.infinity
-                    let lunaraltitude = Double(bits[3])  ?? Double.infinity
-                    
-                    forecastBlobs.append((date:forecastNib.date, cloudCover: forecastNib.cloudCover, transparency: forecastNib.transparency, seeing: forecastNib.seeing, wind:forecastNib.wind, humidity:forecastNib.humidity, temperature: forecastNib.temperature, limitingMagnitude: limitingMagnitude, solarAltitude: solarAltitude, lunarAltitude: lunaraltitude))
-                }
+                var currentDarknessSegment: DarknessSegment
+                currentDarknessSegment.date = darknessDate
+                currentDarknessSegment.limitingMagnitude = Double(bits[1]) ?? Double.infinity
+                currentDarknessSegment.solarAltitude = Double(bits[2]) ?? Double.infinity
+                currentDarknessSegment.lunarAltitude = Double(bits[3])  ?? Double.infinity
+                darknessSegments.append(currentDarknessSegment)
             }
         }
         
-        return forecastBlobs
+        return darknessSegments
     }
     
     private static func parse(dateString: String, utcOffset: Double) -> Date? {

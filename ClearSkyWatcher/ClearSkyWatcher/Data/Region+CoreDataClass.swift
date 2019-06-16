@@ -19,7 +19,7 @@ public class Region: NSManagedObject {
         if let foundRegion = PersistenceManager.shared.getRegion(withName: name) {
             return foundRegion
         } else {
-            logD("Didn't find a region with name: \(name), going to create it... I guess")
+//            logD("Didn't find a region with name: \(name), going to create it... I guess")
             
             let createdRegion = PersistenceManager.shared.createManagedObjects { (context: NSManagedObjectContext) -> Region in
                 let newRegion = Region(context: context)

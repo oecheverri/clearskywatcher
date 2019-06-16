@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ni7-TF-COn">
-    <device id="retina6_1" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ni7-TF-COn">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,11 +15,11 @@
             <objects>
                 <viewController id="Ni7-TF-COn" customClass="InitializerViewController" customModule="ClearSkyWatcher" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Svh-Xh-41t">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="5Of-MD-Mb2">
-                                <rect key="frame" x="188.5" y="434.5" width="37" height="37"/>
+                                <rect key="frame" x="169" y="392.66666666666669" width="37" height="37"/>
                                 <color key="color" name="systemRedColor" catalog="System" colorSpace="catalog"/>
                             </activityIndicatorView>
                         </subviews>
@@ -43,19 +43,19 @@
             <objects>
                 <tableViewController id="BLU-Bs-08n" customClass="SiteTableViewController" customModule="ClearSkyWatcher" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="fM9-Yn-EmH">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SiteCell" textLabel="H5h-0E-v3g" style="IBUITableViewCellStyleDefault" id="Nrj-pU-RLN">
-                                <rect key="frame" x="0.0" y="55.5" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="55.333333333333343" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nrj-pU-RLN" id="MKU-iq-Lb6">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Observing Site Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="H5h-0E-v3g">
-                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -69,14 +69,14 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="RegionCell" textLabel="2vZ-Gx-raf" style="IBUITableViewCellStyleDefault" id="CQl-5u-LfO">
-                                <rect key="frame" x="0.0" y="99.5" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="99.333333333333343" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CQl-5u-LfO" id="R5c-5c-aN0">
-                                    <rect key="frame" x="0.0" y="0.0" width="376" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Region Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2vZ-Gx-raf">
-                                            <rect key="frame" x="20" y="0.0" width="356" height="43.5"/>
+                                            <rect key="frame" x="16" y="0.0" width="324" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -110,104 +110,75 @@
             <objects>
                 <viewController id="6SP-oe-vcg" customClass="ObservingSiteViewController" customModule="ClearSkyWatcher" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HmE-D8-F2k">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MoW-f0-xr2">
-                                <rect key="frame" x="20" y="427" width="374" height="435"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="DBq-fr-qow">
-                                    <size key="itemSize" width="50" height="300"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="X1e-Yx-sxu">
+                                <rect key="frame" x="169" y="346" width="37" height="37"/>
+                                <color key="color" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
+                            <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="416.5" keyboardDismissMode="onDrag" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ah9-1h-g8d">
+                                <rect key="frame" x="0.0" y="88.000000000000028" width="375" height="416.66666666666674"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="3fY-qN-GVP">
+                                    <size key="itemSize" width="50" height="383"/>
                                     <size key="headerReferenceSize" width="50" height="50"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ForecastCell" id="6ae-la-bh3" customClass="ForecastCollectionViewCell" customModule="ClearSkyWatcher" customModuleProvider="target">
-                                        <rect key="frame" x="50" y="67.5" width="50" height="300"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="300"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="DateHeader" id="Yxz-Gx-Uwk" customClass="DateHeaderCollectionViewCell" customModule="ClearSkyWatcher" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="435"/>
+                                <cells/>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="DateHeader" id="LIL-ox-IT5" customClass="DateHeaderCollectionViewCell" customModule="ClearSkyWatcher" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="416.66666666666674"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="clip" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o8y-rF-9ls">
-                                            <rect key="frame" x="4" y="0.0" width="42" height="435"/>
-                                            <color key="backgroundColor" red="0.34283663130000003" green="0.38913585140000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="leE-aG-Lbh">
+                                            <rect key="frame" x="4.3333333333333321" y="0.0" width="41.666666666666671" height="416.66666666666669"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <color key="backgroundColor" red="0.34283663130000003" green="0.38913585140000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
-                                        <constraint firstItem="o8y-rF-9ls" firstAttribute="top" secondItem="Yxz-Gx-Uwk" secondAttribute="top" id="FKS-4F-WM3"/>
-                                        <constraint firstItem="o8y-rF-9ls" firstAttribute="centerX" secondItem="Yxz-Gx-Uwk" secondAttribute="centerX" id="bRL-bt-dQ3"/>
-                                        <constraint firstAttribute="bottom" secondItem="o8y-rF-9ls" secondAttribute="bottom" id="wqI-lh-Vlf"/>
+                                        <constraint firstItem="leE-aG-Lbh" firstAttribute="centerX" secondItem="LIL-ox-IT5" secondAttribute="centerX" id="J9T-oE-vLM"/>
+                                        <constraint firstItem="leE-aG-Lbh" firstAttribute="top" secondItem="LIL-ox-IT5" secondAttribute="top" id="cKu-3B-d50"/>
+                                        <constraint firstAttribute="bottom" secondItem="leE-aG-Lbh" secondAttribute="bottom" id="dl5-3M-cmb"/>
                                     </constraints>
                                     <connections>
-                                        <outlet property="dateName" destination="o8y-rF-9ls" id="bAy-Co-snp"/>
+                                        <outlet property="dateName" destination="leE-aG-Lbh" id="WPH-9I-b50"/>
                                     </connections>
                                 </collectionReusableView>
                                 <connections>
-                                    <outlet property="dataSource" destination="6SP-oe-vcg" id="Rcc-0K-FGN"/>
-                                    <outlet property="delegate" destination="6SP-oe-vcg" id="dYX-Z2-bGt"/>
+                                    <outlet property="dataSource" destination="6SP-oe-vcg" id="o48-fJ-eaW"/>
+                                    <outlet property="delegate" destination="6SP-oe-vcg" id="MWp-gV-HyY"/>
                                 </connections>
                             </collectionView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="198-iQ-uoF">
-                                <rect key="frame" x="188.5" y="550" width="37" height="37"/>
-                                <color key="color" red="0.91372549020000005" green="0.20000000000000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </activityIndicatorView>
-                            <mapView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSi-gy-mBn">
-                                <rect key="frame" x="87" y="161" width="240" height="128"/>
-                            </mapView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Bortle: 6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSm-fL-11s">
-                                <rect key="frame" x="20" y="312" width="180" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="hSm-fL-11s" firstAttribute="leading" secondItem="tTt-U0-Lf9" secondAttribute="leading" constant="20" id="8jI-q8-iIT"/>
-                            <constraint firstItem="tTt-U0-Lf9" firstAttribute="bottom" secondItem="MSi-gy-mBn" secondAttribute="bottom" constant="573" id="I6u-gQ-z9g"/>
-                            <constraint firstItem="MSi-gy-mBn" firstAttribute="top" secondItem="tTt-U0-Lf9" secondAttribute="top" constant="73" id="JnX-nr-Snv"/>
-                            <constraint firstItem="MoW-f0-xr2" firstAttribute="top" secondItem="tTt-U0-Lf9" secondAttribute="top" constant="339" id="KUu-hv-NHL"/>
-                            <constraint firstItem="hSm-fL-11s" firstAttribute="top" secondItem="tTt-U0-Lf9" secondAttribute="top" constant="224" id="Lzl-73-Rvm"/>
-                            <constraint firstItem="tTt-U0-Lf9" firstAttribute="bottom" secondItem="MoW-f0-xr2" secondAttribute="bottom" id="XSN-zX-TuN"/>
-                            <constraint firstItem="MSi-gy-mBn" firstAttribute="leading" secondItem="tTt-U0-Lf9" secondAttribute="leading" constant="87" id="ZMv-qo-uEX"/>
-                            <constraint firstItem="tTt-U0-Lf9" firstAttribute="trailing" secondItem="MSi-gy-mBn" secondAttribute="trailing" constant="87" id="cm0-kj-yty"/>
-                            <constraint firstItem="MoW-f0-xr2" firstAttribute="leading" secondItem="tTt-U0-Lf9" secondAttribute="leading" constant="20" id="i8W-5P-zUu"/>
-                            <constraint firstItem="tTt-U0-Lf9" firstAttribute="bottom" secondItem="198-iQ-uoF" secondAttribute="bottom" constant="275" id="knz-0i-mNV"/>
-                            <constraint firstItem="tTt-U0-Lf9" firstAttribute="bottom" secondItem="hSm-fL-11s" secondAttribute="bottom" constant="529" id="p4E-nG-uM9"/>
-                            <constraint firstItem="tTt-U0-Lf9" firstAttribute="trailing" secondItem="MoW-f0-xr2" secondAttribute="trailing" constant="20" id="u2o-Xc-ON9"/>
-                            <constraint firstItem="198-iQ-uoF" firstAttribute="centerX" secondItem="tTt-U0-Lf9" secondAttribute="centerX" id="wek-kz-dMj"/>
-                            <constraint firstItem="198-iQ-uoF" firstAttribute="top" secondItem="tTt-U0-Lf9" secondAttribute="top" constant="462" id="xug-6l-ZB6"/>
+                            <constraint firstItem="tTt-U0-Lf9" firstAttribute="trailing" secondItem="ah9-1h-g8d" secondAttribute="trailing" id="5xB-xn-a0T"/>
+                            <constraint firstItem="ah9-1h-g8d" firstAttribute="top" secondItem="tTt-U0-Lf9" secondAttribute="top" id="7UR-ag-gee"/>
+                            <constraint firstItem="tTt-U0-Lf9" firstAttribute="bottom" secondItem="X1e-Yx-sxu" secondAttribute="bottom" constant="395" id="UOk-nA-6Je"/>
+                            <constraint firstItem="tTt-U0-Lf9" firstAttribute="bottom" secondItem="ah9-1h-g8d" secondAttribute="bottom" constant="273.33333333333326" id="Uas-2l-YUy"/>
+                            <constraint firstItem="X1e-Yx-sxu" firstAttribute="centerX" secondItem="tTt-U0-Lf9" secondAttribute="centerX" id="jLU-nd-LgN"/>
+                            <constraint firstItem="ah9-1h-g8d" firstAttribute="leading" secondItem="tTt-U0-Lf9" secondAttribute="leading" id="uNC-C0-TSt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tTt-U0-Lf9"/>
                     </view>
                     <connections>
-                        <outlet property="activityIndicator" destination="198-iQ-uoF" id="ubJ-aY-Tpe"/>
-                        <outlet property="bortleLabel" destination="hSm-fL-11s" id="myJ-fg-uhQ"/>
-                        <outlet property="collectionView" destination="MoW-f0-xr2" id="KcG-ya-4gQ"/>
-                        <outlet property="map" destination="MSi-gy-mBn" id="ejw-98-TK2"/>
+                        <outlet property="activityIndicator" destination="X1e-Yx-sxu" id="Djf-vn-76t"/>
+                        <outlet property="collectionView" destination="ah9-1h-g8d" id="Kb7-45-4sd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NLx-HA-Ffd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1528.985507246377" y="-83.035714285714278"/>
+            <point key="canvasLocation" x="1528.8" y="-83.497536945812811"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3ju-pV-bCP">
             <objects>
                 <navigationController id="fZy-Sr-ekr" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="PVQ-8L-u8B">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>

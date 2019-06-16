@@ -13,8 +13,8 @@ class ObservingSiteViewController: ThemedViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var map: MKMapView!
-    @IBOutlet weak var bortleLabel: UILabel!
+//    @IBOutlet weak var map: MKMapView!
+//    @IBOutlet weak var bortleLabel: UILabel!
     
     var forecasts = [String : [Forecast]]()
     var daysOfWeekUsed = [String]()
@@ -27,15 +27,18 @@ class ObservingSiteViewController: ThemedViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bortleLabel.isHidden = true
+//        bortleLabel.isHidden = true
         collectionView.register(UINib(nibName: "ForecastCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ForecastCell")
         
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(observingSite!.latitude), longitude: CLLocationDegrees(observingSite!.longitude))
-        annotation.title = self.title
-        map.addAnnotation(annotation)
-        map.showAnnotations([annotation], animated: true)
-        map.isHidden = false
+        let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout // casting is required because UICollectionViewLayout doesn't offer header pin. Its feature of UICollectionViewFlowLayout
+        layout?.sectionHeadersPinToVisibleBounds = true
+//        
+//        let annotation = MKPointAnnotation()
+//        annotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(observingSite!.latitude), longitude: CLLocationDegrees(observingSite!.longitude))
+//        annotation.title = self.title
+//        map.addAnnotation(annotation)
+//        map.showAnnotations([annotation], animated: true)
+//        map.isHidden = false
         
         ClearSkyWatcher.instance.requestForecast(forSite: observingSite!, callbackOn: onForecastsRetrieved)
     }
@@ -44,15 +47,16 @@ class ObservingSiteViewController: ThemedViewController {
     func onForecastsRetrieved(forecasts: [Forecast]) {
         
         activityIndicator.stopAnimating()
-        bortleLabel.text = "Bortle: \(observingSite!.bortleScale)"
-        bortleLabel.isHidden = false
+//        bortleLabel.text = "Bortle: \(observingSite!.bortleScale)"
+//        bortleLabel.isHidden = false
         for forecast in forecasts {
             var calendar = Calendar.current
             calendar.timeZone = TimeZone(secondsFromGMT: Int(60 * 60 * observingSite!.utcOffset))!
-            let dateName = calendar.weekdaySymbols[calendar.component(.weekday, from: forecast.date!)]
-            self.forecasts[dateName, default: []].append(forecast)
-            if !daysOfWeekUsed.contains(dateName) {
-                daysOfWeekUsed.append(dateName)
+            let weekdayComponent = calendar.component(.weekday, from: forecast.date!)
+            let dayName = calendar.weekdaySymbols[(weekdayComponent - 1)]
+            self.forecasts[dayName, default: []].append(forecast)
+            if !daysOfWeekUsed.contains(dayName) {
+                daysOfWeekUsed.append(dayName)
             }
             
             
@@ -92,6 +96,7 @@ extension ObservingSiteViewController: UICollectionViewDataSource {
 }
 
 extension ObservingSiteViewController: UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
         return CGSize(width: 50, height: collectionView.frame.height);
