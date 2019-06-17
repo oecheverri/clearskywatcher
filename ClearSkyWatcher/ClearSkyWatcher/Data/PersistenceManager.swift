@@ -44,7 +44,7 @@ class PersistenceManager {
         let observingSiteFetchRequest: NSFetchRequest<ObservingSite> = ObservingSite.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         observingSiteFetchRequest.sortDescriptors = [sortDescriptor]
-        observingSiteFetchRequest.predicate = NSPredicate(format: "containingReguin == %@", region)
+        observingSiteFetchRequest.predicate = NSPredicate(format: "containingRegion == %@", region)
         
         return doFetch(fetchRequest: observingSiteFetchRequest)
     }
@@ -66,6 +66,27 @@ class PersistenceManager {
         observingSiteFetchRequest.sortDescriptors = [sortDescriptor]
         let results = doFetch(fetchRequest: observingSiteFetchRequest)
 
+        return results
+    }
+    
+    func getObservingSites(containing keyword: String) -> [ObservingSite] {
+        let observingSiteFetchRequest: ObservingSite.FetchRequest = ObservingSite.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        observingSiteFetchRequest.sortDescriptors = [sortDescriptor]
+        observingSiteFetchRequest.predicate = NSPredicate(format: "name CONTAINS[cd] %@", keyword)
+        let results = doFetch(fetchRequest: observingSiteFetchRequest)
+        
+        return results
+    }
+    
+    func getObservingSites(in country: String, containg keyword:String) -> [ObservingSite] {
+        
+        let observingSiteFetchRequest: ObservingSite.FetchRequest = ObservingSite.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        observingSiteFetchRequest.sortDescriptors = [sortDescriptor]
+        observingSiteFetchRequest.predicate = NSPredicate(format: "name CONTAINS[cd] %@ AND containingRegion.country == %@", keyword, country)
+        let results = doFetch(fetchRequest: observingSiteFetchRequest)
+        
         return results
     }
     
