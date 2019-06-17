@@ -56,8 +56,22 @@ class ClearSkyWatcher {
             regions = persistenceManager.getRegions(inCountry: country)
         }
         return regions
-        
-        
+    }
+    
+    func getObservingSites(containing keyword: String) -> [ObservingSite]{
+        var observingSites = [ObservingSite]()
+            DispatchQueue.global(qos: .userInteractive).sync {
+                observingSites = persistenceManager.getObservingSites(containing: keyword)
+            }
+        return observingSites
+    }
+    
+    func getObervingSites(in country: String, containing keyword:String) -> [ObservingSite] {
+        var observingSites = [ObservingSite]()
+        DispatchQueue.global(qos: .userInteractive).sync {
+            observingSites = persistenceManager.getObservingSites(in: country, containg: keyword)
+        }
+        return observingSites
     }
     
     func requestForecast(forSite site: ObservingSite, callbackOn callback: @escaping ([Forecast]) -> Void){
