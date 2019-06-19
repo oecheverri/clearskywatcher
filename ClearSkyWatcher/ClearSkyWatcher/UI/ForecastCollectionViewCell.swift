@@ -26,13 +26,13 @@ class ForecastCollectionViewCell: UICollectionViewCell {
             let hourLabel: String
             
             if hour == 0 {
-                hourLabel = "12AM"
+                hourLabel = NSLocalizedString("12AM", comment: "12AM")
             } else if hour < 12 {
-                hourLabel = "\(hour)AM"
+                hourLabel = NSLocalizedString("\(hour)AM", comment: "xAM")
             } else if hour == 12 {
-                hourLabel = "\(hour)PM"
+                hourLabel = NSLocalizedString("\(hour)PM", comment: "xPM")
             } else {
-                hourLabel = "\(hour-12)PM"
+                hourLabel = NSLocalizedString("\(hour-12)PM", comment: "xPM")
             }
             
             timeLabel.text = hourLabel

@@ -84,4 +84,15 @@ class ClearSkyWatcher {
         }
     }
     
+    func favourite(observingSite: ObservingSite) {
+        persistenceManager.doAsync(block: { (context) in
+            observingSite.isFavourite = true
+        })
+    }
+    
+    func unfavourite(observingSite: ObservingSite) {
+        persistenceManager.doAsync( block: { (context) in
+            observingSite.isFavourite = false
+        })
+    }
 }
