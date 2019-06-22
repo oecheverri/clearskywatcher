@@ -110,7 +110,7 @@ class SiteTableViewController: ThemedTableViewController, UISearchResultsUpdatin
                 textFieldInsideSearchBar!.textColor = UIColor.red
                 textFieldInsideSearchBar!.tintColor = UIColor.red
                 textFieldInsideSearchBar!.backgroundColor = UIColor.black
-                
+                textFieldInsideSearchBar!.keyboardAppearance = .dark
                 tableView.tableHeaderView = controller.searchBar
                 
                 return controller

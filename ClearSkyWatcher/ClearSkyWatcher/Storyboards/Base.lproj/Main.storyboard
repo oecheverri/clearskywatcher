@@ -36,7 +36,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A9Z-rR-mZV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-868" y="-83"/>
+            <point key="canvasLocation" x="-1050" y="291"/>
         </scene>
         <!--Site Table View Controller-->
         <scene sceneID="X2D-4C-2nN">
@@ -117,7 +117,7 @@
                     <nil key="highlightedColor"/>
                 </label>
             </objects>
-            <point key="canvasLocation" x="1655.2" y="-83.497536945812811"/>
+            <point key="canvasLocation" x="1910" y="290"/>
         </scene>
         <!--Observing Site View Controller-->
         <scene sceneID="SvG-4E-frm">
@@ -145,7 +145,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="leE-aG-Lbh">
-                                            <rect key="frame" x="4.3333333333333321" y="0.0" width="41.666666666666671" height="416.66666666666669"/>
+                                            <rect key="frame" x="4.3333333333333321" y="0.0" width="41.666666666666671" height="367.66666666666669"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -185,7 +185,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NLx-HA-Ffd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2471.1999999999998" y="-83.497536945812811"/>
+            <point key="canvasLocation" x="2726" y="290"/>
         </scene>
         <!--Sites-->
         <scene sceneID="3ju-pV-bCP">
@@ -227,6 +227,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="CFQ-c5-gFg" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="Gqf-VT-cfg">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="selectedImageTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
@@ -237,7 +238,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K8I-fr-b9j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-87.200000000000003" y="-83.497536945812811"/>
+            <point key="canvasLocation" x="-130" y="290"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
