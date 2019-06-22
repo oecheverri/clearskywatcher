@@ -30,6 +30,7 @@
 		F62A8754201BFF3C00260619 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F62A8752201BFF3C00260619 /* Main.storyboard */; };
 		F62A8756201BFF3C00260619 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F62A8755201BFF3C00260619 /* Assets.xcassets */; };
 		F62A8759201BFF3C00260619 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F62A8757201BFF3C00260619 /* LaunchScreen.storyboard */; };
+		F63395C922BDCF0F0099D68B /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63395C822BDCF0F0099D68B /* FavouritesViewController.swift */; };
 		F642409320AFC8E500C52D65 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F642409220AFC8E500C52D65 /* ThemeManager.swift */; };
 		F69E000F22A37C16005CD4D3 /* Forecast+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69E000E22A37C16005CD4D3 /* Forecast+CoreDataProperties.swift */; };
 		F6C99645203A6EBF006FE287 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C99644203A6EBF006FE287 /* Logger.swift */; };
@@ -62,6 +63,7 @@
 		F62A8755201BFF3C00260619 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F62A8758201BFF3C00260619 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F62A875A201BFF3C00260619 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F63395C822BDCF0F0099D68B /* FavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
 		F642409220AFC8E500C52D65 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		F69E000E22A37C16005CD4D3 /* Forecast+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Forecast+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F6C99644203A6EBF006FE287 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				F625E02C22127DED00F0BB03 /* ThemedViewController.swift */,
 				F625E0502218BB3C00F0BB03 /* ObservingSiteViewController.swift */,
 				F6E1B3AD221BAE9B006379A0 /* DateHeaderCollectionViewCell.swift */,
+				F63395C822BDCF0F0099D68B /* FavouritesViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				F603F61E2039180D00129F25 /* NetworkHandler.swift in Sources */,
 				F60EFEFE22093B8700A86806 /* SiteTableViewController.swift in Sources */,
 				DA8944FF220C9A1200059837 /* ForecastParser.swift in Sources */,
+				F63395C922BDCF0F0099D68B /* FavouritesViewController.swift in Sources */,
 				F60BC36B2209BD600071674F /* ClearSkyWatcher.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

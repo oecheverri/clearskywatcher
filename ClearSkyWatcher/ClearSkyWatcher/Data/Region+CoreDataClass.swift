@@ -19,8 +19,6 @@ public class Region: NSManagedObject {
         if let foundRegion = PersistenceManager.shared.getRegion(withName: name) {
             return foundRegion
         } else {
-//            logD("Didn't find a region with name: \(name), going to create it... I guess")
-            
             let createdRegion = PersistenceManager.shared.createManagedObjects { (context: NSManagedObjectContext) -> Region in
                 let newRegion = Region(context: context)
                 newRegion.name = name
@@ -43,6 +41,10 @@ public class Region: NSManagedObject {
         } else {
             return "Unknown"
         }
+    }
+    
+    var observingSitesSorted: [ObservingSite] {
+        return observingSites.sortedArray(using: [NSSortDescriptor(key: "name", ascending: true)]) as! [ObservingSite]
     }
     
     private static let canadianRegionNames = ["Ontario", "Quebec", "Alberta", "Saskatchewan", "British Columbia",
