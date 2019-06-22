@@ -172,11 +172,11 @@ class PersistenceManager {
     func getFavouriteObservingSites() -> [ObservingSite]{
         
         let fetchRequest: ObservingSite.FetchRequest = ObservingSite.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "isFavourite=%@", true)
+        fetchRequest.predicate = NSPredicate(format: "isFavourite=%@", NSNumber(value: true))
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         
         return doFetch(fetchRequest: fetchRequest)
-        
-        
+
     }
     
     func getRegions(inCountry: String? = nil) -> [Region]{

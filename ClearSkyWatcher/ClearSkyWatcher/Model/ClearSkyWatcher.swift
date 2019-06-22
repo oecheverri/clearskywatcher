@@ -95,4 +95,12 @@ class ClearSkyWatcher {
             observingSite.isFavourite = false
         })
     }
+    
+    func getFavouriteObservingSites() -> [ObservingSite] {
+        var favouriteSites = [ObservingSite]()
+        DispatchQueue.global(qos: .userInteractive).sync {
+            favouriteSites = persistenceManager.getFavouriteObservingSites()
+        }
+        return favouriteSites
+    }
 }
