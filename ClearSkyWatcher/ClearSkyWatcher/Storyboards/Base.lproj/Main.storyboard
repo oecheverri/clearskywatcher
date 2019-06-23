@@ -204,11 +204,11 @@
             </objects>
             <point key="canvasLocation" x="855.20000000000005" y="-83.497536945812811"/>
         </scene>
-        <!--Favorites-->
+        <!--Favourites View Controller-->
         <scene sceneID="7f3-kb-0ma">
             <objects>
                 <navigationController id="Nkh-8a-tr7" customClass="FavouritesViewController" customModule="ClearSkyWatcher" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favorites" id="fLF-1Y-wwb"/>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="fLF-1Y-wwb"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="X4p-eO-QFu">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -242,7 +242,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="PbD-mv-Z9G"/>
+        <segue reference="QZ3-gF-s0b"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
