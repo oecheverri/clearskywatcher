@@ -42,8 +42,9 @@ class InitializerViewController: UIViewController {
     
     func startModel() -> Void {
         logD("Starting ClearSkyWatcher")
-        ClearSkyWatcher.instance.start(callingWhenReady: clearSkyWatcherStarted)
+        let dispatchQueue = DispatchQueue.global(qos: .userInteractive)
+        dispatchQueue.async(execute: {[unowned self]() in
+            ClearSkyWatcher.instance.start(callingWhenReady: self.clearSkyWatcherStarted)
+        })
     }
-    
-
 }

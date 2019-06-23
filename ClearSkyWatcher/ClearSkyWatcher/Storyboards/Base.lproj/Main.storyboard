@@ -18,6 +18,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xOL-WF-3ZZ">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="250" image="LaunchImage" translatesAutoresizingMaskIntoConstraints="NO" id="PVQ-8g-H6J">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="367"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Clear Sky Watcher" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fo4-bM-DLg">
+                                        <rect key="frame" x="88.333333333333314" y="367" width="198.33333333333337" height="367"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="5Of-MD-Mb2">
                                 <rect key="frame" x="169" y="392.66666666666669" width="37" height="37"/>
                                 <color key="color" name="systemRedColor" catalog="System" colorSpace="catalog"/>
@@ -25,8 +39,12 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="5Of-MD-Mb2" firstAttribute="centerY" secondItem="67P-ps-AJC" secondAttribute="centerY" id="6a2-sk-vTU"/>
-                            <constraint firstItem="5Of-MD-Mb2" firstAttribute="centerX" secondItem="67P-ps-AJC" secondAttribute="centerX" id="bts-tI-fub"/>
+                            <constraint firstItem="xOL-WF-3ZZ" firstAttribute="height" secondItem="67P-ps-AJC" secondAttribute="height" id="Bw0-Dl-5F7"/>
+                            <constraint firstItem="5Of-MD-Mb2" firstAttribute="centerX" secondItem="xOL-WF-3ZZ" secondAttribute="centerX" id="CSL-TI-mWT"/>
+                            <constraint firstItem="xOL-WF-3ZZ" firstAttribute="centerY" secondItem="67P-ps-AJC" secondAttribute="centerY" id="JZE-zs-m90"/>
+                            <constraint firstItem="xOL-WF-3ZZ" firstAttribute="width" secondItem="67P-ps-AJC" secondAttribute="width" id="PKd-uF-Ow8"/>
+                            <constraint firstItem="xOL-WF-3ZZ" firstAttribute="centerX" secondItem="67P-ps-AJC" secondAttribute="centerX" id="kfr-DH-xSM"/>
+                            <constraint firstItem="5Of-MD-Mb2" firstAttribute="centerY" secondItem="xOL-WF-3ZZ" secondAttribute="centerY" id="yGy-Ld-oc6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="67P-ps-AJC"/>
                     </view>
@@ -145,7 +163,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="leE-aG-Lbh">
-                                            <rect key="frame" x="4.3333333333333321" y="0.0" width="41.666666666666671" height="367.66666666666669"/>
+                                            <rect key="frame" x="4.3333333333333321" y="0.0" width="41.666666666666671" height="16.666666666666668"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -241,8 +259,11 @@
             <point key="canvasLocation" x="-130" y="290"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="LaunchImage" width="1024" height="1024"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QZ3-gF-s0b"/>
+        <segue reference="PbD-mv-Z9G"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
